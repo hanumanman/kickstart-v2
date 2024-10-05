@@ -228,6 +228,13 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'jsonls',
+        'emmet-language-server',
+        'eslint-lsp',
+        'json-lsp',
+        'lua-language-server',
+        'markdownlint',
+        'prettierd',
+        'tailwindcss-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

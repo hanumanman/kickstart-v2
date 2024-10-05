@@ -6,17 +6,17 @@ return {
   opts = function()
     local dashboard = require 'alpha.themes.dashboard'
     local logo = [[
-			           
-              
-             
-              ]]
+			 /|､       
+			(°､ ｡ 7    
+			|､  ~ヽ    
+			じしf_,)〳    ]]
 
     dashboard.section.header.val = vim.split(logo, '\n')
     -- stylua: ignore
     dashboard.section.buttons.val = {
       dashboard.button("o", " " .. " Recent files",    "<cmd> Telescope oldfiles <cr>"),
       dashboard.button("s", " " .. " Find file",       "<cmd> Telescope find_files <cr>"),
-      dashboard.button("v", " " .. " Find text",       "<cmd> Telescope live_grep <cr>"),
+      dashboard.button("v", " " .. " Grep text",       "<cmd> Telescope live_grep <cr>"),
       dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
