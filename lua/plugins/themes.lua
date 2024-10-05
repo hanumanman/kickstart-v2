@@ -29,14 +29,60 @@ return {
     },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.colorscheme 'kanagawa'
+    end,
+    enabled = false,
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    opts = {
+      transparent_background = true,
+      integrations = {
+        cmp = true,
+        treesitter = true,
+        mini = {
+          enabled = true,
+        },
+      },
+    },
+    init = function()
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
+    enabled = false,
+  },
+  {
+    'Mofiqul/vscode.nvim',
+    name = 'vscode',
+    priority = 1000,
+    init = function()
+      vim.o.background = 'dark'
+      vim.cmd.colorscheme = 'vscode'
+      require('vscode').load 'dark'
+    end,
+    lazy = false,
+    config = function()
+      local c = require('vscode.colors').get_colors()
+      require('vscode').setup {
+        transparent = true,
+        italic_comments = true,
+        -- Underline `@markup.link.*` variants
+        underline_links = true,
+        -- Disable nvim-tree background color
+        disable_nvimtree_bg = true,
+        -- Override colors (see ./lua/vscode/colors.lua)
+        -- color_overrides = {
+        --   vscLineNumber = '#FFFFFF',
+        -- },
 
-      -- You can configure highlights by doing something like:
-      -- vim.cmd.hi 'Comment gui=none'
+        -- Override highlight groups (see ./lua/vscode/theme.lua)
+        group_overrides = {
+          -- this supports the same val table as vim.api.nvim_set_hl
+          -- use colors from this colorscheme by requiring vscode.colors!
+          Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+        },
+      }
     end,
   },
 }

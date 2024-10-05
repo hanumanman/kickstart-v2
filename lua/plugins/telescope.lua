@@ -101,7 +101,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>v', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>k', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>o', builtin.oldfiles, { desc = '[S]earch  [O]ldfiles' })
-    vim.keymap.set('n', '<leader>d', builtin.lsp_document_symbols, { desc = '[S]earch  [S]ymbols' })
+    vim.keymap.set('n', '<leader>d', builtin.treesitter, { desc = 'Search treesitter' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme

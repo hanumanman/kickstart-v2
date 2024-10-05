@@ -34,14 +34,14 @@ return {
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      -- {
-      --   'roobert/tailwindcss-colorizer-cmp.nvim',
-      --   config = function()
-      --     require('tailwindcss-colorizer-cmp').setup {
-      --       color_square_width = 2,
-      --     }
-      --   end,
-      -- },
+      {
+        'roobert/tailwindcss-colorizer-cmp.nvim',
+        config = function()
+          require('tailwindcss-colorizer-cmp').setup {
+            color_square_width = 2,
+          }
+        end,
+      },
     },
     config = function()
       require 'cmp' -- See `:help cmp`
@@ -123,6 +123,10 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+        },
+        ---@diagnostic disable-next-line: missing-fields
+        formatting = {
+          format = require('tailwindcss-colorizer-cmp').formatter,
         },
       }
     end,
