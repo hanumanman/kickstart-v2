@@ -29,10 +29,16 @@ vim.api.nvim_create_autocmd('BufRead', {
   end,
 })
 
--- Turn json into jsonc because fuck Microsoft
+-- Set approproate filetype for JSON and .env files (for syntax highlighting and commenting mostly)
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = '*.json',
-  command = 'set filetype=jsonc',
+  pattern = { '*.json', '.env.*' },
+  callback = function(event)
+    if event.match:match '%.json$' then
+      vim.bo.filetype = 'jsonc'
+    elseif event.match:match '%.env%..*$' then
+      vim.bo.filetype = 'sh'
+    end
+  end,
 })
 
 -- Relative line number in normal mode and absolute in insert mode
