@@ -212,6 +212,28 @@ return {
             },
           },
         },
+        cssls = {
+          settings = {
+            css = {
+              validate = true,
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            },
+            less = {
+              validate = true,
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            },
+            scss = {
+              validate = true,
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -230,9 +252,8 @@ return {
         'jsonls',
         'emmet-language-server',
         'eslint-lsp',
-        'json-lsp',
+        'cssls',
         'lua-language-server',
-        'markdownlint',
         'prettierd',
         'tailwindcss-language-server',
       })
