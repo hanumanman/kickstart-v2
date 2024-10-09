@@ -3,20 +3,37 @@ return {
   branch = 'harpoon2',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
-    -- basic telescope configuration
     local conf = require('telescope.config').values
 
+    local function filenameFirst(path)
+      local tail = vim.fs.basename(path)
+      local parent = vim.fs.dirname(path)
+      if parent == '.' then
+        return tail
+      end
+      print(path)
+      return string.format('%s\t\t%s', tail, parent)
+    end
+
     local function toggle_telescope(harpoon_files)
-      local file_paths = {}
+      local file_paths_table = {}
       for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
+        table.insert(file_paths_table, { item.value, filenameFirst(item.value) })
       end
 
       require('telescope.pickers')
         .new({}, {
           prompt_title = 'Harpoon',
           finder = require('telescope.finders').new_table {
-            results = file_paths,
+            results = file_paths_table,
+            entry_maker = function(entry)
+              return {
+                value = entry,
+                display = entry[2],
+                path = entry[1],
+                ordinal = entry[2],
+              }
+            end,
           },
           previewer = conf.file_previewer {},
           sorter = conf.generic_sorter {},
