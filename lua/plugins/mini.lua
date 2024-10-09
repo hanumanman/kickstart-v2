@@ -2,7 +2,7 @@ return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
   keys = {
     {
-      '-',
+      ',',
       function()
         require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
       end,

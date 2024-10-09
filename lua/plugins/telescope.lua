@@ -74,6 +74,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     require('telescope').setup {
       defaults = {
         path_display = filenameFirst,
+        layout_strategy = 'vertical',
       },
       pickers = {
         oldfiles = {
@@ -102,7 +103,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>k', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>o', builtin.oldfiles, { desc = '[S]earch  [O]ldfiles' })
     vim.keymap.set('n', '<leader>d', builtin.treesitter, { desc = 'Search treesitter' })
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing [B]uffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()

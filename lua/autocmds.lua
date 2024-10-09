@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = textYankPostGroup,
   callback = function()
-    vim.highlight.on_yank { timeout = 50 }
+    vim.highlight.on_yank { timeout = 100 }
   end,
 })
 
@@ -31,6 +31,14 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     elseif event.match:match '%.env%..*$' then
       vim.bo.filetype = 'sh'
     end
+  end,
+})
+
+-- Set content.handlebars filetype to html
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { 'content.handlebars' },
+  callback = function()
+    vim.bo.filetype = 'html'
   end,
 })
 
