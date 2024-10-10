@@ -5,6 +5,13 @@ map('n', '<cr>', 'o<Esc>')
 map('n', '<leader><cr>', 'O<Esc>')
 map('n', 'Y', 'y$')
 
+-- Entire-textobject
+map('n', 'yie', 'ggyG')
+map('n', 'vie', 'ggVG')
+map('n', 'cie', 'ggcG')
+map('n', 'die', 'ggdG')
+
+
 map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
