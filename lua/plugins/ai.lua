@@ -1,20 +1,33 @@
 return {
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  --   event = 'InsertEnter',
+  --   config = function()
+  --     require('copilot').setup {
+  --       suggestion = {
+  --         enabled = true,
+  --         auto_trigger = true,
+  --         keymap = {
+  --           accept = '<C-i>',
+  --           next = '<M-j>',
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
   {
-    'zbirenbaum/copilot.lua',
-    event = 'InsertEnter',
+    'supermaven-inc/supermaven-nvim',
+    -- event = 'InsertEnter',
     config = function()
-      require('copilot').setup {
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          keymap = {
-            accept = '<C-i>',
-            next = '<M-j>',
-          },
+      require('supermaven-nvim').setup {
+        color = {
+          suggestion_color = '#5a6c79',
+          cterm = 244,
         },
       }
     end,
   },
+
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',

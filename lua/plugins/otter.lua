@@ -9,6 +9,7 @@ return {
     {
       '<leader>to',
       function()
+--- Activate the current buffer by adding and synchronizing
         require('otter').activate()
       end,
       desc = 'Release the LSPs!',
