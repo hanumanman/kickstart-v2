@@ -5,12 +5,13 @@ map('n', '<cr>', 'o<Esc>')
 map('n', '<leader><cr>', 'O<Esc>')
 map('n', 'Y', 'y$')
 
--- Entire-textobject
-map('n', 'yie', 'ggyG')
-map('n', 'vie', 'ggVG')
-map('n', 'cie', 'ggcG')
-map('n', 'die', 'ggdG')
+map('n', 'H', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 
+-- Entire-textobject
+map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
+map('n', 'vie', 'ggVG', { desc = 'Select entire file' })
+map('n', 'cie', 'ggcG', { desc = 'Change entire file' })
+map('n', 'die', 'ggdG', { desc = 'Delete entire file' })
 
 map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
