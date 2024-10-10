@@ -54,10 +54,10 @@ return {
     map('n', '<leader>j', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end)
-    map('n', '<leader><C-i>', function()
+    map('n', 'H', function()
       harpoon:list():prev()
     end, { desc = 'Previous Harpoon item' })
-    map('n', '<C-i>', function()
+    map('n', 'L', function()
       harpoon:list():next()
     end, { desc = 'Next Harpoon item' })
   end,

@@ -5,7 +5,7 @@ map('n', '<cr>', 'o<Esc>')
 map('n', '<leader><cr>', 'O<Esc>')
 map('n', 'Y', 'y$')
 
-map('n', 'H', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
+map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 
 -- Entire-textobject
 map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })

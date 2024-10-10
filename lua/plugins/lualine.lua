@@ -16,7 +16,7 @@ return {
     theme = 'vscode',
     sections = {
       lualine_c = { { 'filename', path = 1 } },
-      lualine_x = { 'harpoon2', 'encoding', 'fileformat', 'filetype' },
+      lualine_y = { 'progress', 'harpoon2' },
     },
   },
 }
