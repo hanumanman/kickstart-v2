@@ -98,7 +98,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>s', builtin.find_files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', '<leader>S', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', { desc = '[S]earch [F]iles (include hidden files)' })
+    vim.keymap.set(
+      'n',
+      '<leader>S',
+      '<cmd>lua require"telescope.builtin".find_files({ hidden=true, no_ignore=true })<CR>',
+      { desc = '[S]earch [F]iles (include hidden and gitignored)' }
+    )
     vim.keymap.set('n', '<leader>v', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>k', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>o', builtin.oldfiles, { desc = '[S]earch  [O]ldfiles' })
