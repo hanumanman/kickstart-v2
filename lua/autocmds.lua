@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
--- Set content.handlebars filetype to html
+-- Set content.handlebars filetype to html for lsp support
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = { 'content.handlebars' },
   callback = function()

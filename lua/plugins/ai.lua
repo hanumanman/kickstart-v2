@@ -17,21 +17,21 @@ return {
   -- },
   {
     'supermaven-inc/supermaven-nvim',
-    -- event = 'InsertEnter',
+    lazy = false,
     config = function()
       require('supermaven-nvim').setup {
         color = {
-          suggestion_color = '#5a6c79',
+          suggestion_color = '#9CA1AA',
           cterm = 244,
         },
       }
     end,
   },
-
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',
     lazy = false,
+    enabled = true,
     version = false, -- set this if you want to always pull the latest change
     opts = {
       provider = 'copilot',

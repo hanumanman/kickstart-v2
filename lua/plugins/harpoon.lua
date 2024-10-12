@@ -1,8 +1,9 @@
 return {
   'ThePrimeagen/harpoon',
+  event = 'VeryLazy',
   branch = 'harpoon2',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  config = function()
+  init = function()
     local conf = require('telescope.config').values
 
     local function filenameFirst(path)
@@ -42,7 +43,6 @@ return {
     end
 
     local harpoon = require 'harpoon'
-    harpoon:setup()
 
     local map = vim.keymap.set
     map('n', '<leader>m', function()
@@ -53,7 +53,7 @@ return {
     end, { desc = 'Toggle Harpoon Menu' })
     map('n', '<leader>j', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
+    end, { desc = 'Toggle Harpoon Buffer Menu' })
     map('n', 'H', function()
       harpoon:list():prev()
     end, { desc = 'Previous Harpoon item' })
@@ -61,4 +61,6 @@ return {
       harpoon:list():next()
     end, { desc = 'Next Harpoon item' })
   end,
+
+  opts = {},
 }

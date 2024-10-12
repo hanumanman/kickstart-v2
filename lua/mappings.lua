@@ -24,3 +24,13 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 map('n', '<leader>l', 'yiwoconsole.log("Logging <C-r>0", <C-r>0)<Esc>', { desc = ' Turbo log' })
+
+-- Hack to change filetype
+map('n', '<leader><C-i>', function()
+  local filetype_map = {
+    html = 'handlebars',
+    handlebars = 'html',
+    -- css = 'html'
+  }
+  vim.bo.filetype = filetype_map[vim.bo.filetype] or vim.bo.filetype
+end, { desc = 'Change filetype' })
