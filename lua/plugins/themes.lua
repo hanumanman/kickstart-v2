@@ -1,7 +1,7 @@
 return {
   {
     'rebelot/kanagawa.nvim',
-    enabled = true,
+    enabled = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       vim.cmd.colorscheme 'kanagawa'
@@ -66,7 +66,7 @@ return {
   },
   {
     'Mofiqul/vscode.nvim',
-    enabled = false,
+    enabled = true,
     name = 'vscode',
     lazy = false,
     priority = 1000,
