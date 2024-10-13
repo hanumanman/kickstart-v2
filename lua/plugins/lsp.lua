@@ -211,6 +211,13 @@ return {
                 unknownAtRules = 'ignore',
               },
             },
+            vtsls = {
+              experimental = {
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                },
+              },
+            },
           },
         },
       }
@@ -232,6 +239,7 @@ return {
         'json-lsp',
         'lua-language-server',
         'tailwindcss-language-server',
+        'vtsls',
         -- formatter
         'stylua',
         'prettier',
@@ -254,13 +262,11 @@ return {
     end,
   },
   {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    lazy = false,
-    opts = {},
+    'yioneko/nvim-vtsls',
+    event = 'LspAttach',
     keys = {
-      { '<leader>is', mode = 'n', '<cmd>TSToolsRemoveUnusedImports<cr>', desc = 'Remove unused import' },
-      { '<leader>ia', mode = 'n', '<cmd>TSToolsAddMissingImports<cr>', desc = 'Add all missing imports' },
+      { '<leader>is', mode = 'n', '<cmd>VtsExec organize_imports<cr>', desc = 'Remove unused import' },
+      { '<leader>ia', mode = 'n', '<cmd>VtsExec add_missing_imports<cr>', desc = 'Add all missing imports' },
     },
   },
 }
