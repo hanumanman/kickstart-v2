@@ -83,6 +83,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
         find_files = {
           hidden = false,
         },
+        treesitter = {
+          sorting_strategy = 'ascending',
+        },
       },
       extensions = {
         ['ui-select'] = {
