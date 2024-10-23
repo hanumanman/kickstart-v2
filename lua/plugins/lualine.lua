@@ -29,8 +29,8 @@ return {
 
     require('lualine').setup {
       options = {
-        theme = 'vscode',
-        -- theme = 'auto',
+        -- theme = 'vscode',
+        theme = 'auto',
         disabled_filetypes = { 'alpha', 'trouble', 'Avante', 'AvanteInput' },
         -- component_separators = { left = '', right = '' },
         -- section_separators = { left = '', right = '' },
