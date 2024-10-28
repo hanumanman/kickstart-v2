@@ -1,7 +1,7 @@
 return {
   {
     'rebelot/kanagawa.nvim',
-    enabled = true,
+    enabled = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       vim.cmd.colorscheme 'kanagawa'
@@ -81,6 +81,35 @@ return {
         italic_comments = true,
         underline_links = true,
       }
+    end,
+  },
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    enabled = true,
+    priority = 1000,
+    config = function()
+      require('nordic').setup {
+        transparent = {
+          bg = true,
+          float = true,
+        },
+        telescope = {
+          -- Available styles: `classic`, `flat`.
+          style = 'classic',
+        },
+        override = {
+          CursorLine = {
+            bg = '#000000',
+            bold = true,
+          },
+          Visual = {
+            bg = '#000000',
+            bold = true,
+          },
+        },
+      }
+      require('nordic').load()
     end,
   },
 }
