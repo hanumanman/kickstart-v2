@@ -98,16 +98,20 @@ return {
           -- Available styles: `classic`, `flat`.
           style = 'classic',
         },
-        override = {
-          CursorLine = {
-            bg = '#000000',
-            bold = true,
-          },
-          Visual = {
-            bg = '#000000',
-            bold = true,
-          },
-        },
+        on_highlight = function(highlights, _)
+          highlights.Visual = { bg = '#2E3440', bold = true }
+          highlights.CursorLine = { bg = '#3B4252', bold = true }
+        end,
+        -- override = {
+        --   CursorLine = {
+        --     bg = '#000000',
+        --     bold = true,
+        --   },
+        --   Visual = {
+        --     bg = '#000000',
+        --     bold = true,
+        --   },
+        -- },
       }
       require('nordic').load()
     end,
