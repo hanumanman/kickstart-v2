@@ -86,7 +86,7 @@ return {
   {
     'AlexvZyl/nordic.nvim',
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       require('nordic').setup {
@@ -102,18 +102,23 @@ return {
           highlights.Visual = { bg = '#2E3440', bold = true }
           highlights.CursorLine = { bg = '#3B4252', bold = true }
         end,
-        -- override = {
-        --   CursorLine = {
-        --     bg = '#000000',
-        --     bold = true,
-        --   },
-        --   Visual = {
-        --     bg = '#000000',
-        --     bold = true,
-        --   },
-        -- },
       }
       require('nordic').load()
+    end,
+  },
+  {
+    'sainnhe/gruvbox-material',
+    enabled = true,
+    lazy = false,
+    priority = 1000,
+    init = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.gruvbox_material_enable_italic = true
+      vim.g.gruvbox_material_enable_bold = true
+      vim.g.gruvbox_material_visual = 'reverse'
+      vim.g.gruvbox_material_transparent_background = true
+      vim.cmd.colorscheme 'gruvbox-material'
     end,
   },
 }

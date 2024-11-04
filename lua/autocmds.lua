@@ -1,6 +1,3 @@
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
 -- Highlight when yanking (copying) text
 local textYankPostGroup = vim.api.nvim_create_augroup('yankTextGroup', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
