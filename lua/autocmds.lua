@@ -9,15 +9,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Remember cursor position
-vim.api.nvim_create_autocmd('BufReadPost', {
-  callback = function(opts)
-    local ft = vim.bo[opts.buf].filetype
-    local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
-    if not (ft:match 'commit' and ft:match 'rebase') and last_known_line > 1 and last_known_line <= vim.api.nvim_buf_line_count(opts.buf) then
-      vim.api.nvim_feedkeys([[g`"]], 'nx', false)
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd('BufReadPost', {
+--   callback = function(opts)
+--     local ft = vim.bo[opts.buf].filetype
+--     local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
+--     if not (ft:match 'commit' and ft:match 'rebase') and last_known_line > 1 and last_known_line <= vim.api.nvim_buf_line_count(opts.buf) then
+--       vim.api.nvim_feedkeys([[g`"]], 'nx', false)
+--     end
+--   end,
+-- })
 
 -- Set approproate filetype for JSON and .env files (for syntax highlighting and commenting mostly)
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
