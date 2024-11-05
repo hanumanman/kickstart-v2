@@ -29,12 +29,8 @@ return {
 
     require('lualine').setup {
       options = {
-        -- theme = 'vscode',
-        -- theme = 'nordic',
         theme = 'auto',
         disabled_filetypes = { 'alpha', 'trouble', 'Avante', 'AvanteInput' },
-        -- component_separators = { left = '', right = '' },
-        -- section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
@@ -48,7 +44,10 @@ return {
         lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'filetype' },
         lualine_y = {
-          'harpoon2',
+          {
+            'harpoon2',
+            icon = ' 󰸖',
+          },
         },
       },
     }

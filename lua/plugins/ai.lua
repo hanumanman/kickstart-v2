@@ -1,89 +1,107 @@
 return {
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  --   event = 'InsertEnter',
-  --   config = function()
-  --     require('copilot').setup {
-  --       suggestion = {
-  --         enabled = true,
-  --         auto_trigger = true,
-  --         keymap = {
-  --           accept = '<C-i>',
-  --           next = '<M-j>',
-  --         },
-  --       },
-  --     }
-  --   end,
-  -- },
   {
-    'supermaven-inc/supermaven-nvim',
-    lazy = false,
-    enabled = true,
+    'zbirenbaum/copilot.lua',
+    event = 'InsertEnter',
     config = function()
-      require('supermaven-nvim').setup {
-        color = {
-          suggestion_color = '#9CA1AA',
-          cterm = 244,
+      require('copilot').setup {
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = '<C-i>',
+            next = '<M-j>',
+          },
         },
       }
     end,
   },
   {
-    'yetone/avante.nvim',
-    event = 'VeryLazy',
-    lazy = false,
-    enabled = false,
-    version = false, -- set this if you want to always pull the latest change
-    opts = {
-      provider = 'copilot',
-      auto_suggestions_provider = 'copilot',
-      behaviour = {
-        auto_suggestions = false, -- Experimental stage
-      },
-      mappings = {
-        suggestion = {
-          accept = '<C-i>',
-          next = '<M-j>',
-          previous = '<M-k>',
-        },
-      },
-    },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = 'make',
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = 'canary',
+    enabled = true,
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'stevearc/dressing.nvim',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      --- The below dependencies are optional,
-      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
-      'zbirenbaum/copilot.lua', -- for providers='copilot'
+      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
+      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+    },
+    build = 'make tiktoken', -- Only on MacOS or Linux
+    opts = {
+      debug = true, -- Enable debugging
+    },
+    -- :CopilotChatExplain - Write an explanation for the active selection as paragraphs of text
+    -- :CopilotChatReview - Review the selected code
+    -- :CopilotChatFix - There is a problem in this code. Rewrite the code to show it with the bug fixed
+    -- :CopilotChatOptimize - Optimize the selected code to improve performance and readability
+    -- :CopilotChatDocs - Please add documentation comment for the selection
+    -- :CopilotChatTests - Please generate tests for my code
+    -- :CopilotChatFixDiagnostic - Please assist with the following diagnostic issue in file
+    keys = {
       {
-        -- support for image pasting
-        'HakonHarnes/img-clip.nvim',
-        event = 'VeryLazy',
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
+        '<leader>aa',
+        mode = { 'n', 'v' },
+        function()
+          local input = vim.fn.input 'Quick Chat: '
+          if input ~= '' then
+            require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
+          end
+        end,
+        desc = 'CopilotChat - Quick chat',
       },
       {
-        -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { 'markdown', 'Avante' },
-        },
-        ft = { 'markdown', 'Avante' },
+        '<leader>ae',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatExplain<cr>',
+        desc = 'Copilot Chat Explain',
+      },
+      {
+        '<leader>ar',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatReview<cr>',
+        desc = 'Copilot Chat Review',
+      },
+      {
+        '<leader>af',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatFix<cr>',
+        desc = 'Copilot Chat Fix',
+      },
+      {
+        '<leader>ao',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatOptimize<cr>',
+        desc = 'Copilot Chat Optimize',
+      },
+      {
+        '<leader>ad',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatDocs<cr>',
+        desc = 'Copilot Chat Docs',
+      },
+      {
+        '<leader>at',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatTests<cr>',
+        desc = 'Copilot Chat Tests',
+      },
+      {
+        '<leader>ac',
+        mode = { 'n', 'v' },
+        '<cmd>CopilotChatFixDiagnostic<cr>',
+        desc = 'Copilot Chat Fix Diagnostic',
       },
     },
-  },
+  }
+  -- ,{
+  --   'supermaven-inc/supermaven-nvim',
+  --   lazy = false,
+  --   enabled = true,
+  --   config = function()
+  --     require('supermaven-nvim').setup {
+  --       color = {
+  --         suggestion_color = '#9CA1AA',
+  --         cterm = 244,
+  --       },
+  --     }
+  --   end,
+  -- },
+, -- {
 }
