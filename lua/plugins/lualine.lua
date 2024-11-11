@@ -30,7 +30,7 @@ return {
     require('lualine').setup {
       options = {
         theme = 'auto',
-        disabled_filetypes = { 'alpha', 'trouble', 'Avante', 'AvanteInput' },
+        disabled_filetypes = { 'neo-tree', 'alpha', 'trouble', 'Avante', 'AvanteInput' },
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },

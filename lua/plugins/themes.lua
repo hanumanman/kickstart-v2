@@ -108,7 +108,7 @@ return {
   },
   {
     'sainnhe/gruvbox-material',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     init = function()
@@ -120,6 +120,21 @@ return {
       vim.g.gruvbox_material_transparent_background = 2
       vim.g.gruvbox_material_current_word = 'underline'
       vim.cmd.colorscheme 'gruvbox-material'
+    end,
+  },
+  {
+    'sainnhe/everforest',
+    enabled = true,
+    lazy = false,
+    priority = 1000,
+    init = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.everforest_enable_italic = true
+      vim.g.everforest_transparent_background = 2
+      vim.g.everforest_current_word = 'underline'
+      vim.g.everforest_better_performance = 1
+      vim.cmd.colorscheme 'everforest'
     end,
   },
 }

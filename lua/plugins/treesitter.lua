@@ -1,6 +1,37 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      {
+        'HiPhish/rainbow-delimiters.nvim',
+        config = function()
+          local rainbow_delimiters = require 'rainbow-delimiters'
+
+          ---@type rainbow_delimiters.config
+          vim.g.rainbow_delimiters = {
+            strategy = {
+              [''] = rainbow_delimiters.strategy['global'],
+              vim = rainbow_delimiters.strategy['local'],
+            },
+            query = {
+              [''] = 'rainbow-delimiters',
+              lua = 'rainbow-blocks',
+            },
+            priority = {
+              [''] = 110,
+              lua = 210,
+            },
+            highlight = {
+              'RainbowDelimiterYellow',
+              'RainbowDelimiterBlue',
+              'RainbowDelimiterGreen',
+              'RainbowDelimiterViolet',
+              'RainbowDelimiterCyan',
+            },
+          }
+        end,
+      },
+    },
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
