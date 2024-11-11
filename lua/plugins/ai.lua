@@ -5,12 +5,15 @@ return {
     config = function()
       require('copilot').setup {
         suggestion = {
-          enabled = true,
-          auto_trigger = true,
+          enabled = false,
+          auto_trigger = false,
           keymap = {
             accept = '<C-i>',
             next = '<M-j>',
           },
+        },
+        panel = {
+          enabled = false,
         },
       }
     end,
@@ -89,8 +92,7 @@ return {
         desc = 'Copilot Chat Fix Diagnostic',
       },
     },
-  }
-  -- ,{
+  }  -- ,{
   --   'supermaven-inc/supermaven-nvim',
   --   lazy = false,
   --   enabled = true,
