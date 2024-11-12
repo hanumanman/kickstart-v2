@@ -7,6 +7,20 @@ return {
         config = function()
           local rainbow_delimiters = require 'rainbow-delimiters'
 
+          -- Define the highlight from scratch
+          local highlights = {
+            RainbowDelimiterYellow = '#dbbc7f',
+            RainbowDelimiterBlue = '#7fbbb3',
+            RainbowDelimiterGreen = '#a7c080',
+            RainbowDelimiterRed = '#e67e80',
+            RainbowDelimiterCyan = '#83c092',
+            RainbowDelimiterOrange = '#e69875',
+          }
+
+          for group, color in pairs(highlights) do
+            vim.api.nvim_command('highlight ' .. group .. ' guifg=' .. color .. ' ctermfg=White')
+          end
+
           ---@type rainbow_delimiters.config
           vim.g.rainbow_delimiters = {
             strategy = {
@@ -22,10 +36,11 @@ return {
               lua = 210,
             },
             highlight = {
+              'RainbowDelimiterOrange',
               'RainbowDelimiterYellow',
               'RainbowDelimiterBlue',
               'RainbowDelimiterGreen',
-              'RainbowDelimiterViolet',
+              'RainbowDelimiterRed',
               'RainbowDelimiterCyan',
             },
           }
