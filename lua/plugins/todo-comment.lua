@@ -4,6 +4,6 @@ return {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = true, highlight = { multiline = false, after = '', pattern = [[.*<(KEYWORDS)\s]] } },
+    opts = { signs = true, highlight = { multiline = false, after = '', pattern = [[.*<(KEYWORDS):]] } },
   },
 }
