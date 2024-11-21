@@ -41,13 +41,8 @@ return {
       {
         '<leader>aa',
         mode = { 'n', 'v' },
-        function()
-          local input = vim.fn.input 'Quick Chat: '
-          if input ~= '' then
-            require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
-          end
-        end,
-        desc = 'CopilotChat - Quick chat',
+        '<cmd>CopilotChatOpen<cr>',
+        desc = 'Copilot Chat',
       },
       {
         '<leader>ae',
@@ -92,11 +87,7 @@ return {
         desc = 'Copilot Chat Fix Diagnostic',
       },
     },
-  }  -- ,{
-  --   'supermaven-inc/supermaven-nvim',
-  --   lazy = false,
-  --   enabled = true,
-  --   config = function()
+  }  --   config = function()
   --     require('supermaven-nvim').setup {
   --       color = {
   --         suggestion_color = '#9CA1AA',
@@ -105,5 +96,5 @@ return {
   --     }
   --   end,
   -- },
-, -- {
+, -- { -- ,{ --   'supermaven-inc/supermaven-nvim', --   lazy = false, --   enabled = true,
 }
