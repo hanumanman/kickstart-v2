@@ -44,12 +44,12 @@ return {
           }
         end,
       },
-      {
-        'zbirenbaum/copilot-cmp',
-        config = function()
-          require('copilot_cmp').setup()
-        end,
-      },
+      -- {
+      --   'zbirenbaum/copilot-cmp',
+      --   config = function()
+      --     require('copilot_cmp').setup()
+      --   end,
+      -- },
     },
     config = function()
       require 'cmp' -- See `:help cmp`
@@ -132,7 +132,7 @@ return {
           { name = 'luasnip' },
           { name = 'path' },
           -- Copilot Source
-          { name = 'copilot', group_index = 2 },
+          -- { name = 'copilot', group_index = 2 },
         },
         ---@diagnostic disable-next-line: missing-fields
         formatting = {

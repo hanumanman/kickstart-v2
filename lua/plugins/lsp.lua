@@ -220,6 +220,21 @@ return {
             },
           },
         },
+        denols = {
+          root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
+        },
+        vtsls = {
+          root_dir = require('lspconfig.util').root_pattern 'package.json',
+          single_file_support = false,
+          -- single_file_support = function()
+          --   for _, client in pairs(vim.lsp.get_clients()) do
+          --     if client.name == 'denols' then
+          --       return false
+          --     end
+          --   end
+          --   return true
+          -- end,
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -240,6 +255,7 @@ return {
         'lua-language-server',
         'tailwindcss-language-server',
         'vtsls',
+        'denols',
         -- formatter
         'stylua',
         'prettier',
