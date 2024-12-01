@@ -285,4 +285,5 @@ return {
       { '<leader>ia', mode = 'n', '<cmd>VtsExec add_missing_imports<cr>', desc = 'Add all missing imports' },
     },
   },
+  { 'dmmulroy/ts-error-translator.nvim', opts = {} },
 }
