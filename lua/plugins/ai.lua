@@ -6,7 +6,7 @@ return {
       require('copilot').setup {
         suggestion = {
           enabled = true,
-          auto_trigger = false,
+          auto_trigger = true,
           keymap = {
             accept = '<C-k>',
             next = '<C-j>',
@@ -20,23 +20,14 @@ return {
   },
   {
     'CopilotC-Nvim/CopilotChat.nvim',
-    branch = 'canary',
     enabled = true,
     dependencies = {
       { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
       { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
     },
-    -- build = 'make tiktoken', -- Only on MacOS or Linux
     opts = {
       debug = true, -- Enable debugging
     },
-    -- :CopilotChatExplain - Write an explanation for the active selection as paragraphs of text
-    -- :CopilotChatReview - Review the selected code
-    -- :CopilotChatFix - There is a problem in this code. Rewrite the code to show it with the bug fixed
-    -- :CopilotChatOptimize - Optimize the selected code to improve performance and readability
-    -- :CopilotChatDocs - Please add documentation comment for the selection
-    -- :CopilotChatTests - Please generate tests for my code
-    -- :CopilotChatFixDiagnostic - Please assist with the following diagnostic issue in file
     keys = {
       {
         '<leader>aa',
@@ -87,14 +78,5 @@ return {
         desc = 'Copilot Chat Fix Diagnostic',
       },
     },
-  }  --   config = function()
-  --     require('supermaven-nvim').setup {
-  --       color = {
-  --         suggestion_color = '#9CA1AA',
-  --         cterm = 244,
-  --       },
-  --     }
-  --   end,
-  -- },
-, -- { -- ,{ --   'supermaven-inc/supermaven-nvim', --   lazy = false, --   enabled = true,
+  },
 }

@@ -131,6 +131,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'buffer' },
           -- Copilot Source
           -- { name = 'copilot', group_index = 2 },
         },

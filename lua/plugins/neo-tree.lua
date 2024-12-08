@@ -11,7 +11,7 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '<leader>n', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { ',', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
     event_handlers = {
@@ -28,7 +28,7 @@ return {
     filesystem = {
       window = {
         mappings = {
-          ['\\'] = 'close_window',
+          [','] = 'close_window',
           ['h'] = 'close_node',
           ['l'] = 'open',
         },
