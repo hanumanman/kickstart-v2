@@ -1,7 +1,7 @@
 return {
   { -- Autocompletion
-    -- 'hrsh7th/nvim-cmp',
-    'iguanacucumber/magazine.nvim',
+    'hrsh7th/nvim-cmp',
+    enabled = true,
     name = 'nvim-cmp', -- Otherwise highlighting gets messed up
     event = 'InsertEnter',
     dependencies = {
