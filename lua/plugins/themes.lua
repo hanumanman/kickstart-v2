@@ -69,7 +69,7 @@ return {
   },
   {
     'Mofiqul/vscode.nvim',
-    enabled = false,
+    enabled = true,
     name = 'vscode',
     lazy = false,
     priority = 1000,
@@ -116,8 +116,6 @@ return {
     lazy = false,
     priority = 1000,
     init = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = false
       vim.g.gruvbox_material_enable_bold = true
       vim.g.gruvbox_material_visual = 'blue background'
@@ -128,17 +126,27 @@ return {
   },
   {
     'sainnhe/everforest',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     init = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
       vim.g.everforest_enable_italic = false
       vim.g.everforest_transparent_background = 2
       vim.g.everforest_current_word = 'underline'
       vim.g.everforest_better_performance = 1
       vim.cmd.colorscheme 'everforest'
     end,
+  },
+  {
+    'folke/tokyonight.nvim',
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'tokyonight'
+    end,
+    opts = {
+      transparent = true,
+    },
   },
 }

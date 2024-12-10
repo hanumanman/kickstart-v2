@@ -72,24 +72,26 @@ return { -- Fuzzy Finder (files, lsp, etc)
     end
 
     require('telescope').setup {
-      defaults = {
-        path_display = filenameFirst,
-        layout_strategy = 'vertical',
-      },
-      pickers = {
-        oldfiles = {
-          cwd_only = true,
+      defaults = require('telescope.themes').get_ivy {
+        defaults = {
+          path_display = filenameFirst,
+          layout_strategy = 'vertical',
         },
-        find_files = {
-          hidden = false,
+        pickers = {
+          oldfiles = {
+            cwd_only = true,
+          },
+          find_files = {
+            hidden = false,
+          },
+          treesitter = {
+            sorting_strategy = 'ascending',
+          },
         },
-        treesitter = {
-          sorting_strategy = 'ascending',
-        },
-      },
-      extensions = {
-        ['ui-select'] = {
-          require('telescope.themes').get_dropdown(),
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown(),
+          },
         },
       },
     }
