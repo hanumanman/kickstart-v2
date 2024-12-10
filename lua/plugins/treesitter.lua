@@ -20,7 +20,7 @@ return {
         enable = true,
         keymaps = {
           node_incremental = 'v',
-          node_decremental = 'V',
+          node_decremental = '<leader>v',
         },
       },
     },

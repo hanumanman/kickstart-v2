@@ -35,6 +35,7 @@ return {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       {
         'roobert/tailwindcss-colorizer-cmp.nvim',
@@ -132,8 +133,6 @@ return {
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'buffer' },
-          -- Copilot Source
-          -- { name = 'copilot', group_index = 2 },
         },
         ---@diagnostic disable-next-line: missing-fields
         formatting = {
