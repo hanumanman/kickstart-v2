@@ -7,7 +7,6 @@ map('n', 'Y', 'y$')
 
 map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 map('i', '<C-v>', '<cmd>norm p<cr>', { desc = 'Paste' })
-map('n', '<leader>x', '<cmd>q<CR>', { desc = 'Close current buffer' })
 
 -- stylua: ignore
 map('n', '<leader>e', function() vim.diagnostic.open_float() end, { desc = 'Show full diagnostic' })
