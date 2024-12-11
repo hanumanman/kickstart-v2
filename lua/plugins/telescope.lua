@@ -89,6 +89,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
           sorting_strategy = 'ascending',
           theme = 'ivy',
         },
+        live_grep = {
+          theme = 'ivy',
+        },
       },
       extensions = {
         ['ui-select'] = {

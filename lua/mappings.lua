@@ -1,17 +1,5 @@
 local map = vim.keymap.set
 
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
-map('n', '<cr>', 'o<Esc>')
-map('n', '<leader><cr>', 'O<Esc>')
-map('n', 'Y', 'y$')
-
-map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
-map('i', '<C-v>', '<cmd>norm p<cr>', { desc = 'Paste' })
-
--- stylua: ignore
-map('n', '<leader>e', function() vim.diagnostic.open_float() end, { desc = 'Show full diagnostic' })
-
--- Entire-textobject
 map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
 map('n', 'vie', 'ggVG', { desc = 'Select entire file' })
 map('n', 'cie', 'ggcG', { desc = 'Change entire file' })
@@ -27,4 +15,15 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+map('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
+map('n', '<cr>', 'o<Esc>', { desc = 'Insert newline below in normal mode' })
+map('n', '<leader><cr>', 'O<Esc>', { desc = 'Insert newline above in normal mode' })
+map('n', 'Y', 'y$', { desc = 'Yank to end of line' })
+map('i', '<C-v>', '<cmd>norm p<cr>', { desc = 'Paste in insert mode' })
+map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 map('n', '<leader>l', 'yiwoconsole.log("Logging <C-r>0", <C-r>0)<Esc>', { desc = ' Turbo log' })
+-- stylua: ignore start
+map('n', '<A-j>', function() vim.api.nvim_command 'move .+1' end, { desc = 'Move line down' })
+map('n', '<A-k>', function() vim.api.nvim_command 'move .-2' end, { desc = 'Move line up' })
+map('n', '<leader>e', function() vim.diagnostic.open_float() end, { desc = 'Show full diagnostic' })
+-- stylua: ignore end
