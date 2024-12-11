@@ -45,12 +45,7 @@ return {
           }
         end,
       },
-      -- {
-      --   'zbirenbaum/copilot-cmp',
-      --   config = function()
-      --     require('copilot_cmp').setup()
-      --   end,
-      -- },
+      'onsails/lspkind.nvim',
     },
     config = function()
       require 'cmp' -- See `:help cmp`
@@ -62,6 +57,7 @@ return {
       --   format = require('tailwindcss-colorizer-cmp').formatter,
       -- }
 
+      local lspkind = require 'lspkind'
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -136,7 +132,20 @@ return {
         },
         ---@diagnostic disable-next-line: missing-fields
         formatting = {
-          format = require('tailwindcss-colorizer-cmp').formatter,
+          format = lspkind.cmp_format {
+            mode = 'symbol_text',
+            menu = {
+              nvim_lsp = '[LSP]',
+              luasnip = '[LuaSnip]',
+              path = '[Path]',
+              buffer = '[Buffer]',
+              field = '[Field]',
+            },
+            before = function(entry, vim_item)
+              vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
+              return vim_item
+            end,
+          },
         },
       }
     end,
