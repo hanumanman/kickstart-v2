@@ -13,10 +13,8 @@ return {
       }
     end
     require('flash').setup {
-      modes = {
-        char = {
-          jump_labels = true,
-        },
+      highlight = {
+        backdrop = false,
       },
     }
 
