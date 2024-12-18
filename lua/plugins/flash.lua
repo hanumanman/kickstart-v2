@@ -19,7 +19,7 @@ return {
     }
 
   -- stylua: ignore
-    vim.keymap.set({ 'n', 'x', 'o' }, 'S', function() Flash.treesitter() end, { desc = 'Flash Treesitter' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '<leader><leader>', function() Flash.treesitter() end, { desc = 'Flash Treesitter' })
     vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
       Flash.jump {
         search = { mode = 'search' },
