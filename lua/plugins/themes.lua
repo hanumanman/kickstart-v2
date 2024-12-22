@@ -1,7 +1,7 @@
 return {
   {
     'rebelot/kanagawa.nvim',
-    enabled = false,
+    enabled = true,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       require('kanagawa').setup {
@@ -69,7 +69,7 @@ return {
   },
   {
     'Mofiqul/vscode.nvim',
-    enabled = true,
+    enabled = false,
     name = 'vscode',
     lazy = false,
     priority = 1000,

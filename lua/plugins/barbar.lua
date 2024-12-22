@@ -16,7 +16,7 @@ return {
           separator = { left = ' ', right = ' ' },
           separator_at_end = false,
           diagnostics = {
-            [vim.diagnostic.severity.ERROR] = { enabled = true, icon = '󱚝' },
+            [vim.diagnostic.severity.ERROR] = { enabled = true, icon = '󱚝 ' },
             [vim.diagnostic.severity.WARN] = { enabled = true },
           },
         },
