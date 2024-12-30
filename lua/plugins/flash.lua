@@ -8,13 +8,13 @@ return {
     local function format(opts)
       -- always show first and second label
       return {
-        { opts.match.label1, 'FlashMatch' },
+        { opts.match.label1, 'FlashLabel' },
         { opts.match.label2, 'FlashLabel' },
       }
     end
     require('flash').setup {
       highlight = {
-        backdrop = false,
+        backdrop = true,
       },
     }
 

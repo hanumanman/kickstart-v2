@@ -226,14 +226,6 @@ return {
         vtsls = {
           root_dir = require('lspconfig.util').root_pattern 'package.json',
           single_file_support = false,
-          -- single_file_support = function()
-          --   for _, client in pairs(vim.lsp.get_clients()) do
-          --     if client.name == 'denols' then
-          --       return false
-          --     end
-          --   end
-          --   return true
-          -- end,
         },
       }
 
