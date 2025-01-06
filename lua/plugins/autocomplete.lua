@@ -37,6 +37,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
       {
         'roobert/tailwindcss-colorizer-cmp.nvim',
         config = function()
@@ -126,6 +127,7 @@ return {
             group_index = 0,
           },
           { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'buffer' },
@@ -146,6 +148,9 @@ return {
               return vim_item
             end,
           },
+        },
+        window = {
+          documentation = cmp.config.window.bordered(),
         },
       }
     end,
