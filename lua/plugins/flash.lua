@@ -14,7 +14,7 @@ return {
     end
     require('flash').setup {
       highlight = {
-        backdrop = true,
+        backdrop = false,
       },
     }
 
