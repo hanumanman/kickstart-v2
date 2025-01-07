@@ -58,12 +58,10 @@ return {
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-
-          map('K', function()
-            vim.lsp.buf.hover {
-              border = 'rounded',
-            }
-          end, 'Show LSP info')
+          -- stylua: ignore start
+          map('K', function() vim.lsp.buf.hover { border = 'rounded' } end, 'Show LSP info')
+          map('<leader>e', function() vim.diagnostic.open_float { border = 'rounded' } end, 'Show full diagnostic')
+          --stylua: ignore end
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.

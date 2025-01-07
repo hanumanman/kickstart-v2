@@ -25,5 +25,4 @@ map('n', '<leader>l', 'yiwoconsole.log("Logging <C-r>0", <C-r>0)<Esc>', { desc =
 -- stylua: ignore start
 map('n', '<A-j>', function() vim.api.nvim_command 'move .+1' end, { desc = 'Move line down' })
 map('n', '<A-k>', function() vim.api.nvim_command 'move .-2' end, { desc = 'Move line up' })
-map('n', '<leader>e', function() vim.diagnostic.open_float({border = 'rounded'}) end, { desc = 'Show full diagnostic' })
 -- stylua: ignore end
