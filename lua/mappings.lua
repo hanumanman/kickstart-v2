@@ -20,8 +20,14 @@ map('n', '<cr>', 'o<Esc>', { desc = 'Insert newline below in normal mode' })
 map('n', '<leader><cr>', 'O<Esc>', { desc = 'Insert newline above in normal mode' })
 map('n', 'Y', 'y$', { desc = 'Yank to end of line' })
 map('i', '<C-v>', '<cmd>norm p<cr>', { desc = 'Paste in insert mode' })
-map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 map('n', '<leader>l', 'yiwoconsole.log("Logging <C-r>0", <C-r>0)<Esc>', { desc = ' Turbo log' })
+
+--Buffer navigation
+map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
+map('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Switch to the last buffer' })
+map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
+map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
+
 -- stylua: ignore start
 map('n', '<A-j>', function() vim.api.nvim_command 'move .+1' end, { desc = 'Move line down' })
 map('n', '<A-k>', function() vim.api.nvim_command 'move .-2' end, { desc = 'Move line up' })
