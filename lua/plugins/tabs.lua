@@ -17,8 +17,9 @@ return {
           separator_style = { '', '' },
           diagnostics = 'nvim_lsp',
           diagnostics_indicator = function(count, level)
-            local icon = level:match 'error' and '󱚡 ' or ' '
-            return ' ' .. icon .. count
+            local icons = { error = '󱚡 ', warning = ' ' } -- Only show errors and warnings
+            local icon = icons[level] or ''
+            return icon ~= '' and ' ' .. icon .. count or ''
           end,
         },
       }
