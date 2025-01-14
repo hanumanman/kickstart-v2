@@ -1,6 +1,7 @@
 return {
   {
     'zbirenbaum/copilot.lua',
+    enabled = false,
     event = 'InsertEnter',
     config = function()
       require('copilot').setup {
@@ -80,5 +81,15 @@ return {
         desc = 'Copilot Chat Fix Diagnostic',
       },
     },
+  },
+  {
+    'supermaven-inc/supermaven-nvim',
+    config = function()
+      require('supermaven-nvim').setup {
+        keymaps = {
+          accept_suggestion = '<C-k>',
+        },
+      }
+    end,
   },
 }
