@@ -17,14 +17,16 @@
 -- }
 
 return {
-  'ellisonleao/gruvbox.nvim',
+  'sainnhe/gruvbox-material',
+  lazy = false,
   priority = 1000,
-  config = function()
-    require('gruvbox').setup {
-      inverse = false,
-      dim_inactive = false,
-      transparent_mode = true,
-    }
-    vim.cmd 'colorscheme gruvbox'
+  init = function()
+    vim.g.gruvbox_material_enable_italic = true
+    vim.g.gruvbox_material_transparent_background = 2
+    vim.g.gruvbox_material_ui_contrast = 'high'
+    vim.g.gruvbox_material_float_style = 'dim'
+    vim.g.gruvbox_material_current_word = 'underline'
+    vim.cmd.colorscheme 'gruvbox-material'
   end,
+  opts = {},
 }

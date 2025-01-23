@@ -6,7 +6,7 @@ return {
     config = function()
       require('copilot').setup {
         suggestion = {
-          enabled = true,
+          enabled = false,
           auto_trigger = true,
           keymap = {
             accept = '<C-k>',
@@ -29,7 +29,7 @@ return {
       { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
     },
     opts = {
-      debug = true, -- Enable debugging
+      debug = false,
     },
     keys = {
       {

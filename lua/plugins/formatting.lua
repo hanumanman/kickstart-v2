@@ -6,29 +6,28 @@ return {
     {
       '<leader>f',
       function()
-        require('conform').format({ async = true }, function(err)
-          if not err then
-            local mode = vim.api.nvim_get_mode().mode
-            if vim.startswith(string.lower(mode), 'v') then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', true)
-            end
-          end
-        end)
+        require('conform').format { async = true }
       end,
       mode = '',
       desc = '[F]ormat',
     },
   },
+  ---@module "conform"
+  ---@type conform.setupOpts
   opts = {
     notify_on_error = true,
+    default_format_opts = {
+      lsp_format = 'fallback',
+      stop_after_first = true,
+    },
     formatters_by_ft = {
-      lua = { 'stylua', stop_after_first = true },
-      css = { 'prettierd', 'prettier', stop_after_first = true },
-      handlebars = { 'prettierd', 'prettier', stop_after_first = true },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      lua = { 'stylua' },
+      css = { 'prettierd', 'prettier' },
+      handlebars = { 'prettierd', 'prettier' },
+      javascript = { 'prettierd', 'prettier' },
+      typescript = { 'prettierd', 'prettier' },
+      javascriptreact = { 'prettierd', 'prettier' },
+      typescriptreact = { 'prettierd', 'prettier' },
     },
   },
 }
