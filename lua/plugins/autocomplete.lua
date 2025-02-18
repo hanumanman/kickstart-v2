@@ -38,15 +38,15 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
-      {
-        'roobert/tailwindcss-colorizer-cmp.nvim',
-        config = function()
-          require('tailwindcss-colorizer-cmp').setup {
-            color_square_width = 2,
-          }
-        end,
-      },
-      'onsails/lspkind.nvim',
+      -- {
+      --   'roobert/tailwindcss-colorizer-cmp.nvim',
+      --   config = function()
+      --     require('tailwindcss-colorizer-cmp').setup {
+      --       color_square_width = 2,
+      --     }
+      --   end,
+      -- },
+      -- 'onsails/lspkind.nvim',
     },
     config = function()
       require 'cmp' -- See `:help cmp`
@@ -58,8 +58,8 @@ return {
       --   format = require('tailwindcss-colorizer-cmp').formatter,
       -- }
 
-      local lspkind = require 'lspkind'
-      cmp.setup {
+      -- local lspkind = require 'lspkind'
+      local options = {
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -133,26 +133,30 @@ return {
           { name = 'buffer' },
         },
         ---@diagnostic disable-next-line: missing-fields
-        formatting = {
-          format = lspkind.cmp_format {
-            mode = 'symbol_text',
-            menu = {
-              nvim_lsp = '[LSP]',
-              luasnip = '[LuaSnip]',
-              path = '[Path]',
-              buffer = '[Buffer]',
-              field = '[Field]',
-            },
-            before = function(entry, vim_item)
-              vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
-              return vim_item
-            end,
-          },
-        },
-        window = {
-          documentation = cmp.config.window.bordered(),
-        },
+        -- formatting = {
+        -- format = lspkind.cmp_format {
+        --   mode = 'symbol_text',
+        --   menu = {
+        --     nvim_lsp = '[LSP]',
+        --     luasnip = '[LuaSnip]',
+        --     path = '[Path]',
+        --     buffer = '[Buffer]',
+        --     field = '[Field]',
+        --   },
+        --   before = function(entry, vim_item)
+        --     vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
+        --     return vim_item
+        --   end,
+        -- },
+        -- },
+        -- window = {
+        --   documentation = cmp.config.window.bordered(),
+        -- },
       }
+
+      options = vim.tbl_deep_extend('force', options, require 'nvchad.cmp')
+
+      cmp.setup(options)
     end,
   },
 }
