@@ -2,6 +2,7 @@ local options = {
 
   base46 = {
     theme = 'kanagawa', -- default theme
+    transparency = true,
   },
 
   ui = {
@@ -17,15 +18,25 @@ local options = {
     telescope = { style = 'bordered' }, -- borderless / bordered
 
     statusline = {
-      enabled = true,
-      theme = 'default', -- default/vscode/vscode_colored/minimal
-      -- default/round/block/arrow separators work only for default statusline theme
-      -- round and block will work for minimal theme only
+      theme = 'minimal',
       separator_style = 'default',
-      modules = nil,
+      order = { 'mode', 'file', 'git', 'git_username', '%=', 'lsp_msg', '%=', 'diagnostics', 'lsp', 'cwd', 'cursor' },
+      modules = {
+        git_username = function()
+          local handle = io.popen 'git config user.name'
+          if not handle then
+            return ''
+          end
+          local result = handle:read '*a'
+          handle:close()
+          if result == '' then
+            return ''
+          end
+          return ' 󰊢 ' .. (result:gsub('^%s*(.-)%s*$', '%1')) -- Trim whitespace and add git icon
+        end,
+      },
     },
 
-    -- lazyload it when there are 1+ buffers
     tabufline = {
       enabled = false,
     },
