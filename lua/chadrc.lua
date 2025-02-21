@@ -17,6 +17,7 @@ local options = {
     telescope = { style = 'bordered' }, -- borderless / bordered
 
     statusline = {
+      enabled = true,
       theme = 'default',
       separator_style = 'default',
       order = { 'mode', 'file', 'git', 'git_username', '%=', 'lsp_msg', '%=', 'diagnostics', 'lsp', 'cwd', 'cursor' },

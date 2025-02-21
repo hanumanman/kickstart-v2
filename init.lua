@@ -2,8 +2,8 @@ require 'options'
 require 'mappings'
 require 'autocmds'
 
- -- put this in your main init.lua file ( before lazy setup )
- vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+-- put this in your main init.lua file ( before lazy setup )
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -41,8 +41,9 @@ require('lazy').setup({
   },
 })
 
--- put this after lazy setup 
+-- put this after lazy setup
 -- (method 2, for non lazyloaders) to load all highlights at once
- for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-   dofile(vim.g.base46_cache .. v)
- end
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+
+  dofile(vim.g.base46_cache .. v)
+end

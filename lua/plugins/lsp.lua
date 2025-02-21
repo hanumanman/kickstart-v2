@@ -28,6 +28,7 @@ return {
       -- Status updates for LSP.
       {
         'j-hui/fidget.nvim',
+        enabled = false,
         opts = {
           notification = {
             window = {
@@ -158,18 +159,6 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
         jsonls = {
           -- lazy-load schemastore when needed
           on_new_config = function(new_config)
@@ -214,13 +203,6 @@ return {
                 unknownAtRules = 'ignore',
               },
             },
-            vtsls = {
-              experimental = {
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-            },
           },
         },
         denols = {
@@ -229,6 +211,11 @@ return {
         vtsls = {
           root_dir = require('lspconfig.util').root_pattern 'package.json',
           single_file_support = false,
+          experimental = {
+            completion = {
+              enableServerSideFuzzyMatch = true,
+            },
+          },
         },
       }
 
@@ -242,15 +229,15 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
+        'vtsls',
+        'denols',
+        'lua-language-server',
+        'html-lsp',
+        'json-lsp',
         'css-lsp',
         'emmet-language-server',
         'eslint-lsp',
-        'html-lsp',
-        'json-lsp',
-        'lua-language-server',
         'tailwindcss-language-server',
-        'vtsls',
-        'denols',
         -- formatter
         'stylua',
         'prettier',
@@ -258,7 +245,10 @@ return {
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      ---@diagnostic disable-next-line: missing-fields
       require('mason-lspconfig').setup {
+        -- ensure_installed = ensure_installed,
+        -- automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
