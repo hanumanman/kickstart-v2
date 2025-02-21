@@ -32,7 +32,7 @@ local options = {
           if result == '' then
             return ''
           end
-          return ' 󰊢 ' .. (result:gsub('^%s*(.-)%s*$', '%1')) -- Trim whitespace and add git icon
+          return '  ' .. (result:gsub('^%s*(.-)%s*$', '%1')) -- Trim whitespace and add git icon
         end,
       },
     },
