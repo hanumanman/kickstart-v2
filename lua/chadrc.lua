@@ -18,7 +18,7 @@ local options = {
 
     statusline = {
       enabled = true,
-      theme = 'default',
+      theme = 'minimal',
       separator_style = 'default',
       order = { 'mode', 'file', 'git', 'git_username', '%=', 'lsp_msg', '%=', 'diagnostics', 'lsp', 'cwd', 'cursor' },
       modules = {
