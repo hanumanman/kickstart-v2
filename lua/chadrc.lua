@@ -20,7 +20,7 @@ local options = {
       enabled = true,
       theme = 'minimal',
       separator_style = 'default',
-      order = { 'mode', 'file', 'git', 'git_username', '%=', 'lsp_msg', '%=', 'diagnostics', 'lsp', 'cwd', 'cursor' },
+      order = { 'mode', 'file', 'git', '%=', 'lsp_msg', '%=', 'diagnostics', 'git_username', 'cwd', 'cursor' },
       modules = {
         git_username = function()
           local handle = io.popen 'git config user.name'
@@ -32,7 +32,7 @@ local options = {
           if result == '' then
             return ''
           end
-          return '  ' .. (result:gsub('^%s*(.-)%s*$', '%1')) -- Trim whitespace and add git icon
+          return '  ' .. (result:gsub('^%s*(.-)%s*$', '%1')) .. ' ' -- Trim whitespace and add git icon
         end,
       },
     },
