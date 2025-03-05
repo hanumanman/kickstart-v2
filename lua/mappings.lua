@@ -20,7 +20,7 @@ map('n', '<cr>', 'o<Esc>', { desc = 'Insert newline below in normal mode' })
 map('n', '<leader><cr>', 'O<Esc>', { desc = 'Insert newline above in normal mode' })
 map('n', 'Y', 'y$', { desc = 'Yank to end of line' })
 map('i', '<C-v>', '<cmd>norm p<cr>', { desc = 'Paste in insert mode' })
-map('n', '<leader>l', 'yiwoconsole.log("Logging <C-r>0", <C-r>0)<Esc>', { desc = ' Turbo log' })
+map('n', '<leader>l', 'yiwoconsole.log("Logging <C-r>0", <C-r>0)<Esc>', { desc = 'Turbo log' })
 
 --Buffer navigation
 map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })

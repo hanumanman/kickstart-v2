@@ -9,7 +9,7 @@ return {
         require('conform').format { async = true }
       end,
       mode = '',
-      desc = '[F]ormat',
+      desc = 'Format',
     },
   },
   ---@module "conform"
