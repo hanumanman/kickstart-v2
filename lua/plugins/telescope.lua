@@ -62,6 +62,9 @@ return {
         live_grep = {
           theme = 'ivy',
         },
+        buffers = {
+          theme = 'ivy',
+        },
       },
       extensions = {
         ['ui-select'] = {
@@ -87,7 +90,7 @@ return {
     vim.keymap.set('n', '<leader>dd', builtin.resume, { desc = 'Search [R]esume' })
     vim.keymap.set('n', '<leader>do', builtin.oldfiles, { desc = 'Search  [O]ldfiles' })
     vim.keymap.set('n', '<leader>ds', builtin.treesitter, { desc = 'Search treesitter' })
-    -- vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing Buffers' })
+    vim.keymap.set('n', '<leader>db', builtin.buffers, { desc = 'Find existing Buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
