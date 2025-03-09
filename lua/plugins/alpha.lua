@@ -1,6 +1,7 @@
 return {
   'goolord/alpha-nvim',
   event = 'VimEnter',
+  enabled = false,
   init = false,
   opts = function()
     local dashboard = require 'alpha.themes.dashboard'
@@ -14,9 +15,9 @@ return {
     -- stylua: ignore
     dashboard.section.buttons.val = {
       dashboard.button("j", " " .. " Resume last session", "<cmd>lua require('persistence').load() <cr>"),
-      dashboard.button("o", " " .. " Recent files",    "<cmd> Telescope oldfiles <cr>"),
-      dashboard.button("s", " " .. " Find file",       "<cmd> Telescope find_files <cr>"),
-      dashboard.button("v", " " .. " Grep text",       "<cmd> Telescope live_grep <cr>"),
+      dashboard.button("o", " " .. " Recent files",    "<cmd>lua Snacks.picker.recent { layout = 'ivy' } <cr>"),
+      dashboard.button("s", " " .. " Find file",       "<cmd>lua Snacks.picker.files { finder = 'files', format = 'file', layout = 'ivy' } <cr>"),
+      dashboard.button("v", " " .. " Grep text",       "<cmd>lua Snacks.picker.grep { layout = 'ivy' } <cr>"),
       dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
