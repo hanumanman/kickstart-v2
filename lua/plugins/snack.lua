@@ -1,20 +1,6 @@
 return {
   'folke/snacks.nvim',
-  opts = {
-    image = {},
-    dashboard = {
-      enabled = true,
-      keys = {
-        { icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
-        { icon = ' ', key = '<esc>', desc = 'Quit', action = ':qa' },
-      },
-      header = [[
-			 /|､       
-			(°､ ｡ 7    
-			|､  ~ヽ    
-			じしf_,)〳    ]],
-    },
-  },
+  opts = {},
   keys = {
     -- Top Pickers & Explorer
     {
