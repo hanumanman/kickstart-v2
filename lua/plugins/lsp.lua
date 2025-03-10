@@ -34,18 +34,18 @@ return {
         version = false, -- last release is way too old
       },
       -- Status updates for LSP.
-      {
-        'j-hui/fidget.nvim',
-        enabled = false,
-        opts = {
-          notification = {
-            window = {
-              winblend = 0,
-              y_padding = 1,
-            },
-          },
-        },
-      },
+      -- {
+      --   'j-hui/fidget.nvim',
+      --   enabled = false,
+      --   opts = {
+      --     notification = {
+      --       window = {
+      --         winblend = 0,
+      --         y_padding = 1,
+      --       },
+      --     },
+      --   },
+      -- },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',

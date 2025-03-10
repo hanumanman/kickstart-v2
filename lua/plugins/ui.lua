@@ -20,18 +20,18 @@ return {
 
   'nvchad/volt', -- optional, needed for theme switcher
   -- or just use Telescope themes
-  {
-    'ellisonleao/gruvbox.nvim',
-    lazy = false,
-    enabled = false,
-    priority = 1000,
-    init = function()
-      vim.o.background = 'dark' -- or "light" for light mode
-      vim.cmd [[colorscheme gruvbox]]
-    end,
-    opts = {
-      inverse = false, -- invert background for search, diffs, statuslines and errors
-      transparent_mode = true,
-    },
-  },
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   lazy = false,
+  --   enabled = false,
+  --   priority = 1000,
+  --   init = function()
+  --     vim.o.background = 'dark' -- or "light" for light mode
+  --     vim.cmd [[colorscheme gruvbox]]
+  --   end,
+  --   opts = {
+  --     inverse = false, -- invert background for search, diffs, statuslines and errors
+  --     transparent_mode = true,
+  --   },
+  -- },
 }

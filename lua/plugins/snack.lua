@@ -1,12 +1,13 @@
 return {
   'folke/snacks.nvim',
+  event = 'VimEnter',
   opts = {},
   keys = {
     -- Top Pickers & Explorer
     {
       '<leader>s',
       function()
-        Snacks.picker.files { finder = 'files', format = 'file', layout = 'ivy' }
+        Snacks.picker.smart { layout = 'ivy' }
       end,
       desc = 'Find Files',
     },
@@ -16,6 +17,13 @@ return {
         Snacks.picker.files { finder = 'files', format = 'file', layout = 'ivy', hidden = true, ignored = true }
       end,
       desc = 'Find All Files',
+    },
+    {
+      '<leader>dd',
+      function()
+        Snacks.picker.resume { layout = 'ivy' }
+      end,
+      desc = 'Resume Last Picker',
     },
     {
       '<leader>db',
