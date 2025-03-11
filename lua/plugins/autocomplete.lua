@@ -28,6 +28,17 @@ return {
       },
       'saadparwaiz1/cmp_luasnip',
 
+      -- Colorizer for TailwindCSS classes
+      {
+        'roobert/tailwindcss-colorizer-cmp.nvim',
+        -- optionally, override the default options:
+        config = function()
+          require('tailwindcss-colorizer-cmp').setup {
+            color_square_width = 2,
+          }
+        end,
+      },
+
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
@@ -99,9 +110,10 @@ return {
           { name = 'path' },
           { name = 'buffer' },
         },
+        formatting = {
+          format = require('tailwindcss-colorizer-cmp').formatter,
+        },
       }
-
-      options = vim.tbl_deep_extend('force', options, require 'nvchad.cmp')
 
       cmp.setup(options)
     end,

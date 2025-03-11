@@ -1,37 +1,41 @@
 return {
-  'nvim-lua/plenary.nvim',
-  { 'nvim-tree/nvim-web-devicons', lazy = true },
+  'rebelot/kanagawa.nvim',
+  lazy = false,
+  enabled = true,
+  priority = 1000,
+  config = function()
+    -- Default options:
+    require('kanagawa').setup {
+      compile = false, -- enable compiling the colorscheme
+      undercurl = true, -- enable undercurls
+      commentStyle = { italic = true },
+      functionStyle = {},
+      keywordStyle = { italic = true },
+      statementStyle = { bold = true },
+      typeStyle = {},
+      transparent = true, -- do not set background color
+      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = 'none',
+            },
+          },
+        },
+      },
+      overrides = function(colors) -- add/modify highlights
+        return {}
+      end,
+      theme = 'wave', -- Load "wave" theme when 'background' option is not set
+      background = { -- map the value of 'background' option to a theme
+        dark = 'wave', -- try "dragon" !
+        light = 'lotus',
+      },
+    }
 
-  {
-    'nvchad/ui',
-    config = function()
-      require 'nvchad'
-    end,
-  },
-
-  {
-    'nvchad/base46',
-    lazy = true,
-    enabled = true,
-    build = function()
-      require('base46').load_all_highlights()
-    end,
-  },
-
-  'nvchad/volt', -- optional, needed for theme switcher
-  -- or just use Telescope themes
-  -- {
-  --   'ellisonleao/gruvbox.nvim',
-  --   lazy = false,
-  --   enabled = false,
-  --   priority = 1000,
-  --   init = function()
-  --     vim.o.background = 'dark' -- or "light" for light mode
-  --     vim.cmd [[colorscheme gruvbox]]
-  --   end,
-  --   opts = {
-  --     inverse = false, -- invert background for search, diffs, statuslines and errors
-  --     transparent_mode = true,
-  --   },
-  -- },
+    -- setup must be called before loading
+    vim.cmd 'colorscheme kanagawa'
+  end,
 }
