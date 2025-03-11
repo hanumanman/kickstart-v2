@@ -108,7 +108,7 @@ return {
     {
       '<leader>g',
       function()
-        Snacks.lazygit.open()
+        Snacks.lazygit()
       end,
       desc = 'LazyGit',
     },
