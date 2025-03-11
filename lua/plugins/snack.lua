@@ -1,7 +1,19 @@
 return {
   'folke/snacks.nvim',
   event = 'VimEnter',
-  opts = {},
+  opts = {
+    bigfile = { enabled = true },
+    explorer = { enabled = true },
+    indent = { enabled = true },
+    input = { enabled = true },
+    picker = { enabled = true },
+    notifier = { enabled = true },
+    quickfile = { enabled = true },
+    scope = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
+    lazygit = { enabled = true },
+  },
   keys = {
     -- Top Pickers & Explorer
     {
@@ -51,6 +63,13 @@ return {
       desc = 'File Explorer',
     },
     {
+      '<leader>da',
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = 'Grep Line',
+    },
+    {
       '<leader>dg',
       function()
         Snacks.picker.git_files { layout = 'ivy' }
@@ -64,7 +83,6 @@ return {
       end,
       desc = 'Recent',
     },
-    -- git
     {
       '<leader>dB',
       function()
@@ -86,6 +104,13 @@ return {
         Snacks.picker.lsp_symbols { layout = 'ivy' }
       end,
       desc = 'LSP Symbols',
+    },
+    {
+      '<leader>g',
+      function()
+        Snacks.lazygit.open()
+      end,
+      desc = 'LazyGit',
     },
   },
 }
