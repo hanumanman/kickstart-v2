@@ -46,6 +46,7 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
+      'onsails/lspkind.nvim',
     },
     config = function()
       require 'cmp' -- See `:help cmp`
@@ -111,7 +112,15 @@ return {
           { name = 'buffer' },
         },
         formatting = {
-          format = require('tailwindcss-colorizer-cmp').formatter,
+          format = require('lspkind').cmp_format {
+            before = function(entry, vim_item)
+              vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
+              return vim_item
+            end,
+          },
+        },
+        window = {
+          documentation = cmp.config.window.bordered(),
         },
       }
 
