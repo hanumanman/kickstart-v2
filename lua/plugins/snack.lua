@@ -4,7 +4,13 @@ return {
   opts = {
     bigfile = { enabled = true },
     explorer = { enabled = true },
-    indent = { enabled = true },
+    indent = {
+      indent = {
+        enabled = true,
+        only_scope = true, -- only show indent guides of the scope
+        only_current = true,
+      },
+    },
     input = { enabled = true },
     picker = { enabled = true },
     notifier = { enabled = true },
