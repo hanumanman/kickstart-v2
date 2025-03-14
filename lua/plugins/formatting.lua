@@ -20,6 +20,12 @@ return {
       lsp_format = 'fallback',
       stop_after_first = true,
     },
+    formatters = {
+      csharpier = {
+        command = 'dotnet-csharpier',
+        args = { '--write-stdout' },
+      },
+    },
     formatters_by_ft = {
       lua = { 'stylua' },
       css = { 'prettierd', 'prettier' },
@@ -28,6 +34,7 @@ return {
       typescript = { 'prettierd', 'prettier' },
       javascriptreact = { 'prettierd', 'prettier' },
       typescriptreact = { 'prettierd', 'prettier' },
+      cs = { 'csharpier' },
     },
   },
 }
