@@ -1,20 +1,20 @@
 return {
-  -- {
-  --   'vague2k/vague.nvim',
-  --   config = function()
-  --     -- NOTE: you do not need to call setup if you don't want to.
-  --     require('vague').setup {
-  --       transparent = true, -- don't set background
-  --     }
-  --
-  --     vim.cmd 'colorscheme vague'
-  --
-  --     vim.api.nvim_set_hl(0, 'SnacksPickerDir', { fg = '#727169', bg = nil, italic = false })
-  --   end,
-  -- },
+  {
+    'vague2k/vague.nvim',
+    config = function()
+      require('vague').setup {
+        transparent = true, -- don't set background
+      }
+
+      vim.cmd 'colorscheme vague'
+
+      vim.api.nvim_set_hl(0, 'SnacksPickerDir', { fg = '#727169', bg = nil, italic = false })
+    end,
+  },
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
+    enabled = false,
     config = function()
       require('gruvbox').setup {
         terminal_colors = true, -- add neovim terminal colors
