@@ -1,49 +1,38 @@
 return {
   {
     'vague2k/vague.nvim',
+    enabled = true,
     config = function()
       require('vague').setup {
         transparent = true, -- don't set background
       }
 
       vim.cmd 'colorscheme vague'
-
       vim.api.nvim_set_hl(0, 'SnacksPickerDir', { fg = '#727169', bg = nil, italic = false })
     end,
   },
   {
-    'ellisonleao/gruvbox.nvim',
-    priority = 1000,
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
     enabled = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('gruvbox').setup {
-        terminal_colors = true, -- add neovim terminal colors
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          emphasis = true,
-          comments = true,
-          operators = true,
-          folds = true,
+      require('github-theme').setup {
+        options = {
+          transparent = true, -- Disable setting the background color
+          styles = { -- Style to be applied to different syntax groups
+            comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
+            functions = 'italic',
+            keywords = 'bold',
+            constants = 'bold',
+          },
         },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = false, -- invert background for search, diffs, statuslines and errors
-        contrast = '', -- can be "hard", "soft" or empty string
-        palette_overrides = {},
-        overrides = {},
-        dim_inactive = false,
-        transparent_mode = true,
       }
 
-      vim.o.background = 'dark' -- or "light" for light mode
-      vim.cmd [[colorscheme gruvbox]]
-      vim.api.nvim_set_hl(0, 'SnacksPickerDir', { fg = '#83A598', bg = nil, italic = false })
+      vim.cmd 'colorscheme github_dark'
+      vim.api.nvim_set_hl(0, 'SnacksPickerDir', { fg = '#8B949E', bg = nil, italic = false })
+      vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#ffffff', bg = nil })
     end,
   },
   {

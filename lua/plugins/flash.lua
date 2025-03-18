@@ -8,8 +8,8 @@ return {
     local function format(opts)
       -- always show first and second label
       return {
-        { opts.match.label1, '@boolean' },
-        { opts.match.label2, '@boolean' },
+        { opts.match.label1, '@diff.plus' },
+        { opts.match.label2, '@diff.plus' },
       }
     end
     require('flash').setup {

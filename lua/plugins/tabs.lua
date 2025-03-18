@@ -11,7 +11,8 @@ return {
           mode = 'buffers', -- set to "tabs" to only show tabpages instead
           themable = false,
           indicator = {
-            style = 'none',
+            style = 'icon',
+            icon = '󰄛',
           },
           show_buffer_close_icons = false,
           show_close_icon = false,
