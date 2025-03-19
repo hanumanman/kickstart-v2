@@ -44,6 +44,7 @@ return {
       setHighlight(0, 'BufferLineHintSelected', { fg = '#ffffff', bg = nil, italic = true })
       setHighlight(0, 'BufferLineHintDiagnosticSelected', { fg = '#ffffff', bg = nil })
       setHighlight(0, 'DiagnosticHint', { fg = '#ffffff', bg = nil })
+      setHighlight(0, '@tag', { fg = '#FFFFFF', bg = nil })
     end,
   },
 }
