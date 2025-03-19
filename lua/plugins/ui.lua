@@ -41,7 +41,9 @@ return {
       setHighlight(0, 'SnacksPickerDir', { fg = '#8B949E', bg = nil, italic = false })
       setHighlight(0, 'FloatBorder', { fg = '#ffffff', bg = nil })
       setHighlight(0, 'BufferLineTabSelected', { fg = '#ffffff', bg = nil })
-      setHighlight(0, 'BufferLineHintSelected', { fg = '#ffffff', bg = nil })
+      setHighlight(0, 'BufferLineHintSelected', { fg = '#ffffff', bg = nil, italic = true })
+      setHighlight(0, 'BufferLineHintDiagnosticSelected', { fg = '#ffffff', bg = nil })
+      setHighlight(0, 'DiagnosticHint', { fg = '#ffffff', bg = nil })
     end,
   },
 }
