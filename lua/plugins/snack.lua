@@ -6,7 +6,7 @@ return {
     explorer = { enabled = true },
     indent = {
       indent = {
-        enabled = true,
+        enabled = false,
         only_scope = true, -- only show indent guides of the scope
         only_current = true,
       },
@@ -41,6 +41,14 @@ return {
         Snacks.picker.resume { layout = 'ivy' }
       end,
       desc = 'Resume Last Picker',
+    },
+
+    {
+      '<leader>dl',
+      function()
+        Snacks.picker.highlights { layout = 'ivy' }
+      end,
+      desc = 'Buffers',
     },
     {
       '<leader>db',
