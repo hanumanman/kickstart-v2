@@ -223,6 +223,7 @@ return {
             typescript = {
               tsdk = '.yarn/sdks/typescript/lib',
             },
+            vtsls = { autoUseWorkspaceTsdk = true },
           },
           root_dir = require('lspconfig.util').root_pattern 'package.json',
           single_file_support = false,
