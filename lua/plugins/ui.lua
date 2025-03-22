@@ -31,8 +31,8 @@ return {
           styles = {
             comments = 'italic',
             functions = 'italic',
-            keywords = 'bold',
-            constants = 'bold',
+            -- keywords = 'bold',
+            -- constants = 'bold',
           },
         },
       }
