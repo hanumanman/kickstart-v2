@@ -248,7 +248,9 @@ return {
         'emmet-language-server',
         'eslint-lsp',
         'tailwindcss-language-server',
+        'gopls',
         -- formatter
+        'gofumpt',
         'stylua',
         'prettier',
         'prettierd',
