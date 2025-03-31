@@ -1,5 +1,8 @@
-local setHighlight = vim.api.nvim_set_hl
-local themeManager = require 'theme-manager'
+local theme = {
+  kanagawa = true,
+  github = false,
+  catppuccin = false,
+}
 
 return {
   {
@@ -7,7 +10,7 @@ return {
     -- enabled = theme.kanagawa,
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-
+    enabled = theme.kanagawa,
     config = function()
       -- Default options:
       require('kanagawa').setup {
@@ -70,15 +73,16 @@ return {
       }
 
       -- setup must be called before loading
-      themeManager.load()
+      vim.cmd [[colorscheme kanagawa]]
     end,
   },
   {
     'catppuccin/nvim',
     lazy = true,
     name = 'catppuccin',
+    enabled = theme.catppuccin,
     init = function()
-      themeManager.load()
+      vim.cmd [[colorscheme catppuccin]]
     end,
     opts = {
       background = {
@@ -385,10 +389,24 @@ return {
   {
     'projekt0n/github-nvim-theme',
     name = 'github-theme',
+    enabled = theme.github,
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
+      local groups = {
+        all = {
+          SnacksPickerDir = { fg = '#8B949E', bg = nil, italic = false },
+          FloatBorder = { fg = '#ffffff', bg = nil },
+          BufferLineTabSelected = { fg = '#ffffff', bg = nil },
+          BufferLineHintSelected = { fg = '#ffffff', bg = nil, italic = true },
+          BufferLineHintDiagnosticSelected = { fg = '#ffffff', bg = nil },
+          DiagnosticHint = { fg = '#ffffff', bg = nil },
+          ['@tag'] = { fg = '#FFFFFF', bg = nil },
+        },
+      }
+
       require('github-theme').setup {
+        groups = groups,
         options = {
           transparent = true, -- Disable setting the background color
           styles = {
@@ -398,14 +416,7 @@ return {
         },
       }
 
-      themeManager.load()
-      setHighlight(0, 'SnacksPickerDir', { fg = '#8B949E', bg = nil, italic = false })
-      setHighlight(0, 'FloatBorder', { fg = '#ffffff', bg = nil })
-      setHighlight(0, 'BufferLineTabSelected', { fg = '#ffffff', bg = nil })
-      setHighlight(0, 'BufferLineHintSelected', { fg = '#ffffff', bg = nil, italic = true })
-      setHighlight(0, 'BufferLineHintDiagnosticSelected', { fg = '#ffffff', bg = nil })
-      setHighlight(0, 'DiagnosticHint', { fg = '#ffffff', bg = nil })
-      setHighlight(0, '@tag', { fg = '#FFFFFF', bg = nil })
+      vim.cmd 'colorscheme github_dark'
     end,
   },
 }
