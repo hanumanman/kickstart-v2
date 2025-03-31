@@ -62,6 +62,7 @@ return {
             SnacksPickerBorder = { fg = '#727169', bg = 'none' },
             SnacksPickerDir = { fg = '#8B949E', bg = nil, italic = false },
             FloatBorder = { bg = 'none' },
+            BufferLineSelected = { fg = '#ffffff', bg = kanagawaTheme.ui.bg_p2 },
           }
         end,
         theme = 'wave', -- Load "wave" theme
