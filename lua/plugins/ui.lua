@@ -1,20 +1,23 @@
 local setHighlight = vim.api.nvim_set_hl
-local themeManager = require 'theme-manager'
+
+local theme = {
+  github = false,
+  catppuccin = false,
+  kanagawa = true,
+}
 
 return {
   {
     'rebelot/kanagawa.nvim',
-    -- enabled = theme.kanagawa,
+    enabled = theme.kanagawa,
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-
     config = function()
       -- Default options:
       require('kanagawa').setup {
         compile = false, -- enable compiling the colorscheme
         undercurl = true, -- enable undercurls
         commentStyle = { italic = true },
-        typeStyle = { bold = true },
         functionStyle = { italic = true },
         keywordStyle = { italic = true },
         statementStyle = { bold = true },
@@ -70,15 +73,18 @@ return {
       }
 
       -- setup must be called before loading
-      themeManager.load()
+      vim.cmd 'colorscheme kanagawa'
+      -- setHighlight(0, 'SnacksPickerDir', { fg = '#8B949E', bg = nil, italic = false })
+      -- setHighlight(0, 'FloatBorder', { fg = '#ffffff', bg = nil })
     end,
   },
   {
     'catppuccin/nvim',
     lazy = true,
     name = 'catppuccin',
+    enabled = theme.catppuccin,
     init = function()
-      themeManager.load()
+      vim.cmd [[colorscheme catppuccin]]
     end,
     opts = {
       background = {
@@ -384,6 +390,7 @@ return {
   },
   {
     'projekt0n/github-nvim-theme',
+    enabled = theme.github,
     name = 'github-theme',
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -398,7 +405,7 @@ return {
         },
       }
 
-      themeManager.load()
+      vim.cmd 'colorscheme github_dark'
       setHighlight(0, 'SnacksPickerDir', { fg = '#8B949E', bg = nil, italic = false })
       setHighlight(0, 'FloatBorder', { fg = '#ffffff', bg = nil })
       setHighlight(0, 'BufferLineTabSelected', { fg = '#ffffff', bg = nil })
