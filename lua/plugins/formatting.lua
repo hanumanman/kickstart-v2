@@ -23,12 +23,8 @@ return {
     formatters_by_ft = {
       go = { 'gofumpt' },
       lua = { 'stylua' },
-      css = { 'prettierd', 'prettier' },
-      handlebars = { 'prettierd', 'prettier' },
-      javascript = { 'prettierd', 'prettier' },
-      typescript = { 'prettierd', 'prettier' },
-      javascriptreact = { 'prettierd', 'prettier' },
-      typescriptreact = { 'prettierd', 'prettier' },
+      json = { 'prettierd' },
+      jsonc = { 'prettierd' },
     },
   },
 }
