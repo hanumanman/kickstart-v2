@@ -21,7 +21,6 @@ return {
       stop_after_first = true,
     },
     formatters_by_ft = {
-      go = { 'gofumpt' },
       lua = { 'stylua' },
       css = { 'prettierd', 'prettier' },
       handlebars = { 'prettierd', 'prettier' },

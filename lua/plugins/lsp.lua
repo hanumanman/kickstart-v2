@@ -215,12 +215,12 @@ return {
             },
           },
         },
-        denols = {
-          root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
-        },
+        -- denols = {
+        --   root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
+        -- },
         vtsls = {
           root_dir = require('lspconfig.util').root_pattern 'package.json',
-          single_file_support = false,
+          single_file_support = true,
           experimental = {
             completion = {
               enableServerSideFuzzyMatch = true,
@@ -248,9 +248,7 @@ return {
         'emmet-language-server',
         'eslint-lsp',
         'tailwindcss-language-server',
-        'gopls',
         -- formatter
-        'gofumpt',
         'stylua',
         'prettier',
         'prettierd',
