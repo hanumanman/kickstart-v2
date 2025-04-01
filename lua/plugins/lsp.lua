@@ -219,12 +219,23 @@ return {
         --   root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
         -- },
         vtsls = {
+          settings = {
+            typescript = {
+              tsdk = '.yarn/sdks/typescript/lib',
+            },
+            vtsls = { autoUseWorkspaceTsdk = true },
+          },
           root_dir = require('lspconfig.util').root_pattern 'package.json',
-          single_file_support = true,
+          single_file_support = false,
           experimental = {
             completion = {
               enableServerSideFuzzyMatch = true,
             },
+          },
+        },
+        eslint = {
+          settings = {
+            nodePath = '.yarn/sdks',
           },
         },
       }
