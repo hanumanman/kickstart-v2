@@ -1,14 +1,6 @@
 -- LSP Plugins
 return {
   {
-    'yioneko/nvim-vtsls',
-    event = 'LspAttach',
-    keys = {
-      { '<leader>is', mode = 'n', '<cmd>VtsExec organize_imports<cr>', desc = 'Remove unused import' },
-      { '<leader>ia', mode = 'n', '<cmd>VtsExec add_missing_imports<cr>', desc = 'Add all missing imports' },
-    },
-  },
-  {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
@@ -193,40 +185,6 @@ return {
             },
           },
         },
-        cssls = {
-          settings = {
-            css = {
-              validate = true,
-              lint = {
-                unknownAtRules = 'ignore',
-              },
-            },
-            less = {
-              validate = true,
-              lint = {
-                unknownAtRules = 'ignore',
-              },
-            },
-            scss = {
-              validate = true,
-              lint = {
-                unknownAtRules = 'ignore',
-              },
-            },
-          },
-        },
-        denols = {
-          root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
-        },
-        vtsls = {
-          root_dir = require('lspconfig.util').root_pattern 'package.json',
-          single_file_support = false,
-          experimental = {
-            completion = {
-              enableServerSideFuzzyMatch = true,
-            },
-          },
-        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -239,18 +197,9 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
-        'vtsls',
-        'denols',
         'lua-language-server',
-        'html-lsp',
         'json-lsp',
-        'css-lsp',
-        'emmet-language-server',
-        'eslint-lsp',
-        'tailwindcss-language-server',
-        'gopls',
         -- formatter
-        'gofumpt',
         'stylua',
         'prettier',
         'prettierd',
