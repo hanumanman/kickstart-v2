@@ -215,9 +215,6 @@ return {
             },
           },
         },
-        -- denols = {
-        --   root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
-        -- },
         vtsls = {
           settings = {
             typescript = {
@@ -251,7 +248,6 @@ return {
       vim.list_extend(ensure_installed, {
         --lsp
         'vtsls',
-        'denols',
         'lua-language-server',
         'html-lsp',
         'json-lsp',
