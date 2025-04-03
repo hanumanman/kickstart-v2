@@ -67,3 +67,5 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 -- Disable inline diagnostics
 vim.diagnostic.config { virtual_text = true, severity_sort = true }
+
+vim.opt.laststatus = 3

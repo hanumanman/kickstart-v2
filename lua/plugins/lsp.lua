@@ -1,14 +1,6 @@
 -- LSP Plugins
 return {
   {
-    'yioneko/nvim-vtsls',
-    event = 'LspAttach',
-    keys = {
-      { '<leader>is', mode = 'n', '<cmd>VtsExec organize_imports<cr>', desc = 'Remove unused import' },
-      { '<leader>ia', mode = 'n', '<cmd>VtsExec add_missing_imports<cr>', desc = 'Add all missing imports' },
-    },
-  },
-  {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
@@ -239,10 +231,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
-        'vtsls',
-        'denols',
         'lua-language-server',
-        'html-lsp',
         'json-lsp',
         'css-lsp',
         'emmet-language-server',
