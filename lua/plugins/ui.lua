@@ -1,13 +1,12 @@
 local theme = {
-  kanagawa = true,
-  github = false,
+  kanagawa = false,
+  github = true,
   catppuccin = false,
 }
 
 return {
   {
     'rebelot/kanagawa.nvim',
-    -- enabled = theme.kanagawa,
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     enabled = theme.kanagawa,
@@ -401,7 +400,11 @@ return {
           BufferLineHintSelected = { fg = '#ffffff', bg = nil, italic = true },
           BufferLineHintDiagnosticSelected = { fg = '#ffffff', bg = nil },
           DiagnosticHint = { fg = '#ffffff', bg = nil },
-          ['@tag'] = { fg = '#FFFFFF', bg = nil },
+          DiagnosticVirtualTextHint = { fg = '#ffffff', bg = nil },
+          DiagnosticVirtualTextInfo = { fg = '#2f81f7', bg = nil },
+          DiagnosticVirtualTextWarn = { fg = '#f7b83d', bg = nil },
+          DiagnosticVirtualTextError = { fg = '#f85149', bg = nil },
+          -- ['@tag'] = { fg = '#FFFFFF', bg = nil },
         },
       }
 
