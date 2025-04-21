@@ -4,6 +4,15 @@ return {
   event = 'VimEnter',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    {
+      'letieu/harpoon-lualine',
+      dependencies = {
+        {
+          'ThePrimeagen/harpoon',
+          branch = 'harpoon2',
+        },
+      },
+    },
   },
   config = function()
     local function git_username()
@@ -41,7 +50,7 @@ return {
           'diff',
           'diagnostics',
         },
-        lualine_x = { 'filetype' },
+        lualine_x = { 'harpoon2', 'filetype' },
       },
     }
   end,

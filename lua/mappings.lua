@@ -25,8 +25,8 @@ map('n', '<leader>l', 'yiwo// TODO: Delete console.log<Esc>oconsole.log("LOGGING
 --Buffer navigation
 map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 map('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Switch to the last buffer' })
-map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
-map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
+-- map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
+-- map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
 
 -- stylua: ignore start
 map('n', '<A-j>', function() vim.api.nvim_command 'move .+1' end, { desc = 'Move line down' })
