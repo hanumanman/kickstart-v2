@@ -1,10 +1,30 @@
 local theme = {
-  kanagawa = true,
+  kanagawa = false,
   github = false,
   catppuccin = false,
+  vague = true,
 }
 
 return {
+  {
+    'vague2k/vague.nvim',
+    lazy = false,
+    priority = 1000,
+    enabled = theme.vague,
+    config = function()
+      require('vague').setup {
+        transparent = true,
+        style = {
+          functions = 'italic',
+        },
+        -- Override colors
+        -- colors = {
+        --   floatBorder = '#ffffff',
+        -- },
+      }
+      vim.cmd 'colorscheme vague'
+    end,
+  },
   {
     'rebelot/kanagawa.nvim',
     lazy = false, -- make sure we load this during startup if it is your main colorscheme

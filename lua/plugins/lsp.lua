@@ -68,7 +68,7 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
           -- stylua: ignore start
-          map('K', function() vim.lsp.buf.hover { border = 'rounded' } end, 'Show LSP info')
+          map('K', function() vim.lsp.buf.hover()  end, 'Show LSP info')
           map('<leader>e', function() vim.diagnostic.open_float { border = 'rounded' } end, 'Show full diagnostic')
           --stylua: ignore end
           -- Jump to the definition of the word under your cursor.
@@ -243,6 +243,7 @@ return {
         'eslint-lsp',
         'tailwindcss-language-server',
         'gopls',
+        'svelte-language-server',
         -- formatter
         'gofumpt',
         'stylua',

@@ -69,3 +69,8 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.diagnostic.config { virtual_text = true, severity_sort = true }
 
 vim.opt.laststatus = 3
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  -- Use a sharp border with `FloatBorder` highlights
+  border = 'rounded',
+})
