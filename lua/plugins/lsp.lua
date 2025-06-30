@@ -237,10 +237,8 @@ return {
         'emmet-language-server',
         'eslint-lsp',
         'tailwindcss-language-server',
-        'gopls',
         'svelte-language-server',
         -- formatter
-        'gofumpt',
         'stylua',
         'prettier',
         'prettierd',

@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+map('n', '<leader>f', '<cmd>w<cr>', { desc = 'Save' })
+
 map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
 map('n', 'vie', 'ggVG', { desc = 'Select entire file' })
 map('n', 'cie', 'ggcG', { desc = 'Change entire file' })

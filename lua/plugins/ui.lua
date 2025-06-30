@@ -1,8 +1,8 @@
 local theme = {
-  kanagawa = false,
+  kanagawa = true,
   github = false,
   catppuccin = false,
-  vague = true,
+  vague = false,
 }
 
 return {
