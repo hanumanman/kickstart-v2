@@ -94,7 +94,7 @@ return {
     {
       '<leader>do',
       function()
-        Snacks.picker.recent { layout = 'ivy' }
+        Snacks.picker.recent { layout = 'ivy', filter = { cwd = true } }
       end,
       desc = 'Recent',
     },

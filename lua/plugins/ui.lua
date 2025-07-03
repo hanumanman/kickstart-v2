@@ -12,17 +12,19 @@ return {
     priority = 1000,
     enabled = theme.vague,
     config = function()
+      local test = { a = 1 }
+      print(test.a)
       require('vague').setup {
+        bold = true,
         transparent = true,
         style = {
           functions = 'italic',
+          boolean = 'none',
         },
-        -- Override colors
-        -- colors = {
-        --   floatBorder = '#ffffff',
-        -- },
       }
       vim.cmd 'colorscheme vague'
+      vim.api.nvim_set_hl(0, '@lsp.type.variable', { bold = true })
+      vim.api.nvim_set_hl(0, '@type.builtin', { bold = false })
     end,
   },
   {
@@ -38,8 +40,8 @@ return {
         commentStyle = { italic = true },
         typeStyle = { bold = false },
         functionStyle = { italic = true },
-        keywordStyle = { italic = true },
-        statementStyle = { bold = true },
+        keywordStyle = { italic = false, bold = false },
+        statementStyle = { bold = false },
         transparent = true, -- do not set background color
         dimInactive = false, -- dim inactive window `:h hl-NormalNC`
         colors = { -- add/modify theme and palette colors
@@ -92,6 +94,8 @@ return {
 
       -- setup must be called before loading
       vim.cmd [[colorscheme kanagawa]]
+      vim.api.nvim_set_hl(0, '@lsp.type.variable', { bold = true })
+      vim.api.nvim_set_hl(0, '@type.builtin', { bold = false })
     end,
   },
   {
