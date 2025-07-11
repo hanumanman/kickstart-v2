@@ -4,15 +4,15 @@ return {
   event = 'VimEnter',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    {
-      'letieu/harpoon-lualine',
-      dependencies = {
-        {
-          'ThePrimeagen/harpoon',
-          branch = 'harpoon2',
-        },
-      },
-    },
+    -- {
+    --   'letieu/harpoon-lualine',
+    --   dependencies = {
+    --     {
+    --       'ThePrimeagen/harpoon',
+    --       branch = 'harpoon2',
+    --     },
+    --   },
+    -- },
   },
   config = function()
     local function git_username()
