@@ -22,6 +22,8 @@ return {
             'rafamadriz/friendly-snippets',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
+              -- Load custom snippets
+              require 'snippets'
             end,
           },
         },
@@ -71,9 +73,13 @@ return {
         menu = {
           border = 'rounded',
         },
-        documentation = { auto_show = true, auto_show_delay_ms = 100, window = {
-          border = 'rounded',
-        } },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 100,
+          window = {
+            border = 'rounded',
+          }
+        },
       },
 
       sources = {
