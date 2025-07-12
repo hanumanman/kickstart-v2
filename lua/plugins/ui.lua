@@ -59,6 +59,7 @@ return {
             return { fg = color, bg = c(color):blend(kanagawaTheme.ui.bg, 0.95):to_hex() }
           end
           return {
+            Comment = { fg = '#76946A' },
             NormalFloat = { bg = 'none' },
             FloatTitle = { bg = 'none' },
 

@@ -242,6 +242,8 @@ return {
         'stylua',
         'prettier',
         'prettierd',
+        -- linter
+        'oxlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
