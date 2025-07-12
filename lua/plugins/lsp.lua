@@ -241,7 +241,6 @@ return {
         -- formatter
         'stylua',
         'prettier',
-        'prettierd',
         -- linter
         'oxlint',
       })
