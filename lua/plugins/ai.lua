@@ -3,6 +3,10 @@ return {
     'supermaven-inc/supermaven-nvim',
     config = function()
       require('supermaven-nvim').setup {
+        color = {
+          suggestion_color = '#8B949E',
+          cterm = 244,
+        },
         keymaps = {
           clear_suggestion = '<C-]>',
           accept_suggestion = '<C-l>',
@@ -11,28 +15,4 @@ return {
       }
     end,
   },
-  -- {
-  --   'CopilotC-Nvim/CopilotChat.nvim',
-  --   enabled = true,
-  --   branch = 'main',
-  --   dependencies = {
-  --     { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
-  --     { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
-  --   },
-  --   opts = {
-  --     debug = false,
-  --     window = {
-  --       title = 'Haha ngu',
-  --     },
-  --     model = 'claude-3.7-sonnet',
-  --   },
-  --   keys = {
-  --     {
-  --       '<leader>o',
-  --       mode = { 'n', 'v' },
-  --       '<cmd>CopilotChatToggle<cr>',
-  --       desc = 'Copilot Chat Toggle',
-  --     },
-  --   },
-  -- },
 }
