@@ -1,5 +1,5 @@
 local theme = {
-  kanagawa = true,
+  kanagawa = false,
   vague = true,
 }
 
