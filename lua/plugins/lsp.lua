@@ -238,6 +238,7 @@ return {
         'eslint-lsp',
         'tailwindcss-language-server',
         'svelte-language-server',
+        'marksman',
         -- formatter
         'stylua',
         'prettier',
