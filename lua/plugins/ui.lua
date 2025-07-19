@@ -1,7 +1,13 @@
 local theme = {
-  kanagawa = false,
-  vague = true,
+  kanagawa = true,
+  vague = false,
 }
+
+local function set_highlights(highlights, definition)
+  for _, group in ipairs(highlights) do
+    vim.api.nvim_set_hl(0, group, definition)
+  end
+end
 
 return {
   {
@@ -21,22 +27,17 @@ return {
       vim.cmd 'colorscheme vague'
 
       -- Tweak colors
-      vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', { fg = '#727169' })
-      vim.api.nvim_set_hl(0, 'Visual', { bg = '#3a3d37' })
-      vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { link = '@character' })
-      vim.api.nvim_set_hl(0, 'Comment', { fg = '#7db574' })
-      vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'BufferLineBackground', { fg = '#8B949E' })
-      vim.api.nvim_set_hl(0, 'FlashBackdrop', { link = 'BufferLineBackground' })
-      vim.api.nvim_set_hl(0, 'FlashLabel', { fg = '#E8B589', bg = 'none' })
-      vim.api.nvim_set_hl(0, '@lsp.type.comment', { fg = '#7db574' })
-      vim.api.nvim_set_hl(0, '@lsp.type.variable', { bold = true })
-      vim.api.nvim_set_hl(0, '@type.builtin', { bold = false })
-      vim.api.nvim_set_hl(0, '@lsp.type.method', { fg = '#c48282', italic = true })
-      vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = '#c48282', italic = true })
-      vim.api.nvim_set_hl(0, '@lsp.typemod.function', { fg = '#c48282', italic = true })
+      set_highlights({ 'DiagnosticUnnecessary', 'OilFileHidden', 'OilDirHidden' }, { fg = '#727169' })
+      set_highlights({ 'Visual' }, { bg = '#3a3d37' })
+      set_highlights({ 'LspSignatureActiveParameter' }, { link = '@character' })
+      set_highlights({ 'Comment', '@lsp.type.comment' }, { fg = '#7db574' })
+      set_highlights({ 'BlinkCmpMenu', 'StatusLine', 'Pmenu' }, { bg = 'none' })
+      set_highlights({ 'BufferLineBackground' }, { fg = '#8B949E' })
+      set_highlights({ 'FlashBackdrop' }, { link = 'BufferLineBackground' })
+      set_highlights({ 'FlashLabel' }, { fg = '#E8B589', bg = 'none' })
+      set_highlights({ '@lsp.type.variable' }, { bold = true })
+      set_highlights({ '@type.builtin' }, { bold = false })
+      set_highlights({ '@lsp.type.method', '@lsp.type.function', '@lsp.typemod.function' }, { fg = '#c48282', italic = true })
     end,
   },
   {
@@ -70,11 +71,6 @@ return {
             return { fg = color, bg = c(color):blend(kanagawaTheme.ui.bg, 0.95):to_hex() }
           end
           return {
-            LspSignatureActiveParameter = { italic = true },
-            DiagnosticUnnecessary = { fg = '#727169' },
-            Comment = { fg = '#76946A' },
-            NormalFloat = { bg = 'none' },
-            FloatTitle = { bg = 'none' },
             NormalDark = { fg = kanagawaTheme.ui.fg_dim, bg = kanagawaTheme.ui.bg_m3 },
             LazyNormal = { bg = kanagawaTheme.ui.bg_m3, fg = kanagawaTheme.ui.fg_dim },
             MasonNormal = { bg = kanagawaTheme.ui.bg_m3, fg = kanagawaTheme.ui.fg_dim },
@@ -85,13 +81,6 @@ return {
             DiagnosticVirtualTextInfo = makeDiagnosticColor(kanagawaTheme.diag.info),
             DiagnosticVirtualTextWarn = makeDiagnosticColor(kanagawaTheme.diag.warning),
             DiagnosticVirtualTextError = makeDiagnosticColor(kanagawaTheme.diag.error),
-            SnacksPickerBorder = { fg = '#727169', bg = 'none' },
-            SnacksPickerDir = { fg = '#8B949E', bg = nil, italic = false },
-            FloatBorder = { bg = 'none' },
-            BlinkCmpMenuBorder = { bg = 'none' },
-            BufferLineBackground = { fg = '#8B949E' },
-            ['@lsp.type.variable'] = { bold = true },
-            ['@type.builtin'] = { bold = false },
           }
         end,
         theme = 'wave',
@@ -102,6 +91,15 @@ return {
       }
 
       vim.cmd [[colorscheme kanagawa]]
+
+      set_highlights({ 'FloatBorder', 'BlinkCmpMenuBorder', 'NormalFloat', 'FloatTitle' }, { bg = 'none' })
+      set_highlights({ 'SnacksPickerBorder' }, { fg = '#727169', bg = 'none' })
+      set_highlights({ 'SnacksPickerDir', 'BufferLineBackground' }, { fg = '#8B949E' })
+      set_highlights({ 'OilDirHidden', 'OilFileHidden', 'DiagnosticUnnecessary' }, { fg = '#727169' })
+      set_highlights({ 'Comment' }, { fg = '#76946A' })
+      set_highlights({ 'LspSignatureActiveParameter' }, { italic = true })
+      set_highlights({ '@lsp.type.variable' }, { bold = true })
+      set_highlights({ '@type.builtin' }, { bold = false })
     end,
   },
 }

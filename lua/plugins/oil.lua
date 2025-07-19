@@ -11,6 +11,9 @@ return {
   },
   ---@type oil.SetupOpts
   opts = {
+    view_options = {
+      show_hidden = true,
+    },
     -- Configuration for the floating window in oil.open_float
     float = {
       -- Padding around the floating window
