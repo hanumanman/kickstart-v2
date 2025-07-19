@@ -1,6 +1,6 @@
 local theme = {
-  kanagawa = true,
-  vague = false,
+  kanagawa = false,
+  vague = true,
 }
 
 local function set_highlights(highlights, definition)
@@ -37,6 +37,7 @@ return {
       set_highlights({ 'FlashLabel' }, { fg = '#E8B589', bg = 'none' })
       set_highlights({ '@lsp.type.variable' }, { bold = true })
       set_highlights({ '@type.builtin' }, { bold = false })
+      set_highlights({ '@punctuation.bracket', '@constructor.lua' }, { italic = false })
       set_highlights({ '@lsp.type.method', '@lsp.type.function', '@lsp.typemod.function' }, { fg = '#c48282', italic = true })
     end,
   },
