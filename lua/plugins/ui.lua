@@ -30,7 +30,7 @@ return {
       set_highlights({ 'DiagnosticUnnecessary', 'OilFileHidden', 'OilDirHidden' }, { fg = '#727169' })
       set_highlights({ 'Visual' }, { bg = '#3a3d37' })
       set_highlights({ 'LspSignatureActiveParameter' }, { link = '@character' })
-      set_highlights({ 'Comment', '@lsp.type.comment' }, { fg = '#7db574' })
+      set_highlights({ '@comment' }, { fg = '#7db574' })
       set_highlights({ 'BlinkCmpMenu', 'StatusLine', 'Pmenu' }, { bg = 'none' })
       set_highlights({ 'BufferLineBackground' }, { fg = '#8B949E' })
       set_highlights({ 'FlashBackdrop' }, { link = 'BufferLineBackground' })
@@ -97,9 +97,9 @@ return {
       set_highlights({ 'SnacksPickerBorder' }, { fg = '#727169', bg = 'none' })
       set_highlights({ 'SnacksPickerDir', 'BufferLineBackground' }, { fg = '#8B949E' })
       set_highlights({ 'OilDirHidden', 'OilFileHidden', 'DiagnosticUnnecessary' }, { fg = '#727169' })
-      set_highlights({ 'Comment' }, { fg = '#76946A' })
       set_highlights({ 'LspSignatureActiveParameter' }, { italic = true })
       set_highlights({ '@lsp.type.variable' }, { bold = true })
+      set_highlights({ '@lsp.type.comment' }, { fg = '#76946A' })
       set_highlights({ '@type.builtin' }, { bold = false })
     end,
   },

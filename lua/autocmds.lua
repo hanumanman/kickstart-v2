@@ -42,11 +42,3 @@ vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEn
     end
   end,
 })
-
--- Greet
-vim.api.nvim_create_autocmd({ 'VimEnter' }, {
-  pattern = { '*' },
-  callback = function()
-    vim.notify('Hello con cho', vim.log.levels.DEBUG)
-  end,
-})

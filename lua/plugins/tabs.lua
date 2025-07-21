@@ -8,6 +8,7 @@ return {
       local bufferline = require 'bufferline'
       bufferline.setup {
         options = {
+          style_preset = bufferline.style_preset.no_italic,
           mode = 'buffers', -- set to "tabs" to only show tabpages instead
           themable = true,
           indicator = {
