@@ -241,7 +241,8 @@ return {
         'marksman',
         -- formatter
         'stylua',
-        'prettier',
+        -- 'prettier',
+        'prettierd',
         -- linter
         'oxlint',
       })

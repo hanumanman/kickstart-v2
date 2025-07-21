@@ -28,7 +28,7 @@ return {
 
       -- Tweak colors
       set_highlights({ 'DiagnosticUnnecessary', 'OilFileHidden', 'OilDirHidden' }, { fg = '#727169' })
-      set_highlights({ 'Visual' }, { bg = '#3a3d37' })
+      set_highlights({ 'Visual', 'CurSearch' }, { bg = '#3a3d37' })
       set_highlights({ 'LspSignatureActiveParameter' }, { link = '@character' })
       set_highlights({ '@comment' }, { fg = '#7db574' })
       set_highlights({ 'BlinkCmpMenu', 'StatusLine', 'Pmenu' }, { bg = 'none' })
