@@ -38,7 +38,7 @@ return {
     lazygit = { enabled = true },
   },
   keys = {
-    -- Top Pickers & Explorer
+    -- Pickers & Explorer
     {
       '<leader>s',
       function()
@@ -135,6 +135,12 @@ return {
         Snacks.picker.lsp_symbols { layout = 'ivy' }
       end,
       desc = 'LSP Symbols',
+    },
+    {
+      '<leader>dl',
+      function()
+        Snacks.picker.diagnostics { layout = 'ivy' }
+      end,
     },
     {
       '<leader>g',
