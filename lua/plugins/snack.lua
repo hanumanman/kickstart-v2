@@ -23,7 +23,7 @@ return {
   end,
   opts = {
     bigfile = { enabled = true },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     indent = {
       indent = {
         enabled = false,
@@ -34,10 +34,14 @@ return {
     input = { enabled = true },
     picker = { enabled = true },
     notifier = { enabled = true },
-    quickfile = { enabled = true },
+    quickfile = { enabled = false },
+
     scope = { enabled = true },
     statuscolumn = { enabled = true },
     lazygit = { enabled = true },
+    zen = { enabled = true, show = {
+      tabline = true,
+    } },
   },
   keys = {
     -- Pickers & Explorer
@@ -156,6 +160,13 @@ return {
         Snacks.lazygit()
       end,
       desc = 'LazyGit',
+    },
+    {
+      ',',
+      function()
+        Snacks.zen()
+      end,
+      desc = 'Zen mode',
     },
   },
 }
