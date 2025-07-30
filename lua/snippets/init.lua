@@ -18,4 +18,3 @@ ls.add_snippets('typescriptreact', javascript_snippets)
 -- Load Markdown snippets
 local markdown_snippets = require 'snippets.markdown'
 ls.add_snippets('markdown', markdown_snippets)
-

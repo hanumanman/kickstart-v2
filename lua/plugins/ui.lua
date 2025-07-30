@@ -41,10 +41,16 @@ return {
       vim.cmd 'colorscheme vague'
 
       -- Tweak colors
-      set_highlights({ 'DiagnosticUnnecessary', 'OilFileHidden', 'OilDirHidden' }, { fg = '#727169' })
+      set_highlights(
+        { 'DiagnosticUnnecessary', 'OilFileHidden', 'OilDirHidden' },
+        { fg = '#727169' }
+      )
       set_highlights({ 'Visual', 'CurSearch' }, { bg = '#3a3d37' })
       set_highlights({ 'LspSignatureActiveParameter' }, { link = '@character' })
-      set_highlights({ '@comment', '@lsp.type.comment' }, { italic = true, fg = '#7db574' })
+      set_highlights(
+        { '@comment', '@lsp.type.comment' },
+        { italic = true, fg = '#7db574' }
+      )
       set_highlights({ 'BlinkCmpMenu', 'StatusLine', 'Pmenu' }, { bg = 'none' })
       set_highlights({ 'BufferLineBackground' }, { fg = '#8B949E' })
       set_highlights({ 'FlashBackdrop' }, { link = 'BufferLineBackground' })
@@ -53,7 +59,13 @@ return {
       set_highlights({ '@type.builtin' }, { bold = false })
       set_highlights({ '@punctuation.bracket', '@constructor.lua' }, { italic = false })
       set_highlights(
-        { '@lsp.type.method', '@lsp.type.function', '@lsp.typemod.function', '@function.member', '@function.call' },
+        {
+          '@lsp.type.method',
+          '@lsp.type.function',
+          '@lsp.typemod.function',
+          '@function.member',
+          '@function.call',
+        },
         { fg = '#c48282', italic = true }
       )
     end,
@@ -76,11 +88,16 @@ return {
         dimInactive = false, -- dim inactive window `:h hl-NormalNC`
         colors = { -- add/modify theme and palette colors
           palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {
-            ui = {
-              bg_gutter = 'none',
+          theme = {
+            wave = {},
+            lotus = {},
+            dragon = {},
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              },
             },
-          } },
+          },
         },
         overrides = function(colors)
           local kanagawaTheme = colors.theme
@@ -110,10 +127,16 @@ return {
 
       vim.cmd [[colorscheme kanagawa]]
 
-      set_highlights({ 'FloatBorder', 'BlinkCmpMenuBorder', 'NormalFloat', 'FloatTitle' }, { bg = 'none' })
+      set_highlights(
+        { 'FloatBorder', 'BlinkCmpMenuBorder', 'NormalFloat', 'FloatTitle' },
+        { bg = 'none' }
+      )
       set_highlights({ 'SnacksPickerBorder' }, { fg = '#727169', bg = 'none' })
       set_highlights({ 'SnacksPickerDir', 'BufferLineBackground' }, { fg = '#8B949E' })
-      set_highlights({ 'OilDirHidden', 'OilFileHidden', 'DiagnosticUnnecessary' }, { fg = '#727169' })
+      set_highlights(
+        { 'OilDirHidden', 'OilFileHidden', 'DiagnosticUnnecessary' },
+        { fg = '#727169' }
+      )
       set_highlights({ 'LspSignatureActiveParameter' }, { italic = true })
       set_highlights({ '@lsp.type.variable' }, { bold = true })
       set_highlights({ '@lsp.type.comment' }, { fg = '#76946A' })

@@ -34,6 +34,10 @@ vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
+vim.opt.colorcolumn = '90'
+
+vim.opt.textwidth = 90
+vim.opt.wrap = true
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -63,7 +67,8 @@ vim.opt.scrolloff = 10
 
 vim.opt.fillchars = { eob = ' ' }
 
-vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+vim.o.sessionoptions =
+  'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 -- Disable inline diagnostics
 vim.diagnostic.config { virtual_text = true, severity_sort = true }

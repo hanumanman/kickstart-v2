@@ -16,7 +16,10 @@ return {
     t { '', '' },
     t { '', '  // Google OAuth credentials' },
     t { '', '  GOOGLE_CLIENT_ID: z.string().min(1, "GOOGLE_CLIENT_ID is required"),' },
-    t { '', '  GOOGLE_CLIENT_SECRET: z.string().min(1, "GOOGLE_CLIENT_SECRET is required"),' },
+    t {
+      '',
+      '  GOOGLE_CLIENT_SECRET: z.string().min(1, "GOOGLE_CLIENT_SECRET is required"),',
+    },
     t { '', '  // Server configuration' },
     t { '', '  PORT: z.coerce.number().positive().default(3000),' },
     t { '', '})' },
@@ -35,7 +38,10 @@ return {
     t { '', '    const errorMessages = z.prettifyError(result.error)' },
     t { '', '' },
     t { '', '    throw new Error(' },
-    t { '', '      `Environment validation failed:\\n${errorMessages}\\n\\nPlease check your .env file and ensure all required variables are set.`' },
+    t {
+      '',
+      '      `Environment validation failed:\\n${errorMessages}\\n\\nPlease check your .env file and ensure all required variables are set.`',
+    },
     t { '', '    )' },
     t { '', '  }' },
     t { '', '' },

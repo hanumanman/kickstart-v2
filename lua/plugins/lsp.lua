@@ -4,8 +4,18 @@ return {
     'yioneko/nvim-vtsls',
     event = 'LspAttach',
     keys = {
-      { '<leader>is', mode = 'n', '<cmd>VtsExec organize_imports<cr>', desc = 'Remove unused import' },
-      { '<leader>ia', mode = 'n', '<cmd>VtsExec add_missing_imports<cr>', desc = 'Add all missing imports' },
+      {
+        '<leader>is',
+        mode = 'n',
+        '<cmd>VtsExec organize_imports<cr>',
+        desc = 'Remove unused import',
+      },
+      {
+        '<leader>ia',
+        mode = 'n',
+        '<cmd>VtsExec add_missing_imports<cr>',
+        desc = 'Add all missing imports',
+      },
     },
   },
   {
@@ -65,7 +75,12 @@ return {
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+            vim.keymap.set(
+              mode,
+              keys,
+              func,
+              { buffer = event.buf, desc = 'LSP: ' .. desc }
+            )
           end
           -- stylua: ignore start
           map('K', function() vim.lsp.buf.hover({border = 'rounded'})  end, 'Show LSP info')
@@ -144,9 +159,18 @@ return {
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
-          if client and client.supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+          if
+            client
+            and client.supports_method(
+              client,
+              vim.lsp.protocol.Methods.textDocument_inlayHint,
+              event.buf
+            )
+          then
             map('<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+              vim.lsp.inlay_hint.enable(
+                not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }
+              )
             end, '[T]oggle Inlay [H]ints')
           end
         end,
@@ -168,7 +192,10 @@ return {
           -- lazy-load schemastore when needed
           on_new_config = function(new_config)
             new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-            vim.list_extend(new_config.settings.json.schemas, require('schemastore').json.schemas())
+            vim.list_extend(
+              new_config.settings.json.schemas,
+              require('schemastore').json.schemas()
+            )
           end,
           settings = {
             json = {
@@ -258,7 +285,8 @@ return {
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            server.capabilities =
+              vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
         },
