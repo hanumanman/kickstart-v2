@@ -42,7 +42,7 @@ return {
     scope = { enabled = true },
     statuscolumn = { enabled = true },
     lazygit = { enabled = true },
-    zen = { enabled = true, show = {
+    zen = { enabled = false, show = {
       tabline = true,
     } },
   },
@@ -154,7 +154,11 @@ return {
     {
       '<leader>ds',
       function()
-        Snacks.picker.lsp_symbols {}
+        Snacks.picker.lsp_symbols {
+          filter = {
+            default = true,
+          },
+        }
       end,
       desc = 'LSP Symbols',
     },

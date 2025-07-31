@@ -48,6 +48,7 @@ return {
         -- { fg = '#DE6B48', italic = true }
         { fg = '#E88D67', italic = true }
       )
+      set_highlights({ '@markup.heading' }, { fg = '#eeeeee' })
     end,
   },
   {
