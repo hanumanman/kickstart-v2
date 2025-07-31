@@ -137,6 +137,13 @@ return {
       desc = 'Grep Open Buffers',
     },
     {
+      '<leader>dt',
+      function()
+        Snacks.picker.todo_comments {}
+      end,
+      desc = 'Grep Open Buffers',
+    },
+    {
       '<leader>dW',
       function()
         Snacks.picker.grep_word {}

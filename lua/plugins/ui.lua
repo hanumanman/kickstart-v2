@@ -37,9 +37,10 @@ return {
         'FloatBorder',
         'LspReferenceText',
       }, { bg = 'none' })
+      set_highlights({ 'String' }, { italic = true, fg = '#7BB099' })
       set_highlights(
-        { 'LspSignatureActiveParameter', 'String' },
-        { italic = true, fg = '#7BB099' }
+        { 'LspSignatureActiveParameter' },
+        { italic = true, fg = '#7BB099', underline = true, bold = true }
       )
       set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
       set_highlights(
