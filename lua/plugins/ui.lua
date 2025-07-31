@@ -26,8 +26,8 @@ return {
         '@lsp.typemod.function',
         '@function.member',
         '@function.call',
-      }, { fg = '#ffffff', italic = true })
-      set_highlights({ '@lsp.type.variable', 'SnacksPickerFile' }, { bold = true })
+      }, { fg = '#eeeeee', italic = true })
+      set_highlights({ '@lsp.type.variable' }, { fg = '#c0c0c0', bold = true })
       set_highlights({
         'BlinkCmpMenu',
         'StatusLine',
