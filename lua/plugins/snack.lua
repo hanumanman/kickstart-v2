@@ -48,7 +48,7 @@ return {
     {
       '<leader>s',
       function()
-        Snacks.picker.smart { layout = 'ivy' }
+        Snacks.picker.smart { filter = { cwd = true } }
       end,
       desc = 'Find Files',
     },
@@ -68,7 +68,7 @@ return {
     {
       '<leader>dd',
       function()
-        Snacks.picker.resume { layout = 'ivy' }
+        Snacks.picker.resume {}
       end,
       desc = 'Resume Last Picker',
     },
@@ -76,21 +76,21 @@ return {
     {
       '<leader>dl',
       function()
-        Snacks.picker.highlights { layout = 'ivy' }
+        Snacks.picker.highlights {}
       end,
       desc = 'Buffers',
     },
     {
       '<leader>db',
       function()
-        Snacks.picker.buffers { layout = 'ivy' }
+        Snacks.picker.buffers {}
       end,
       desc = 'Buffers',
     },
     {
       '<leader>dw',
       function()
-        Snacks.picker.grep { layout = 'ivy' }
+        Snacks.picker.grep {}
       end,
       desc = 'Grep',
     },
@@ -115,7 +115,7 @@ return {
     {
       '<leader>dg',
       function()
-        Snacks.picker.git_files { layout = 'ivy' }
+        Snacks.picker.git_files {}
       end,
       desc = 'Find Git Files',
     },
@@ -129,14 +129,14 @@ return {
     {
       '<leader>dB',
       function()
-        Snacks.picker.grep_buffers { layout = 'ivy' }
+        Snacks.picker.grep_buffers {}
       end,
       desc = 'Grep Open Buffers',
     },
     {
       '<leader>dW',
       function()
-        Snacks.picker.grep_word { layout = 'ivy' }
+        Snacks.picker.grep_word {}
       end,
       desc = 'Visual selection or word',
       mode = { 'n', 'x' },
@@ -144,15 +144,9 @@ return {
     {
       '<leader>ds',
       function()
-        Snacks.picker.lsp_symbols { layout = 'ivy' }
+        Snacks.picker.lsp_symbols {}
       end,
       desc = 'LSP Symbols',
-    },
-    {
-      '<leader>dl',
-      function()
-        Snacks.picker.diagnostics { layout = 'ivy' }
-      end,
     },
     {
       '<leader>g',

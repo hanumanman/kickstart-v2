@@ -1,7 +1,7 @@
 local theme = {
   kanagawa = false,
-  vague = true,
-  ashen = false,
+  vague = false,
+  rasmus = true,
 }
 
 local function set_highlights(highlights, definition)
@@ -12,17 +12,34 @@ end
 
 return {
   {
-    'ficcdaf/ashen.nvim',
-    tag = '*',
+    'kvrohit/rasmus.nvim',
+    enabled = theme.rasmus,
     lazy = false,
-    enabled = theme.ashen,
     priority = 1000,
-    init = function()
-      vim.cmd [[colorscheme ashen]]
+    config = function()
+      vim.g.rasmus_transparent = true
+      vim.cmd [[colorscheme rasmus]]
+
+      set_highlights({
+        '@lsp.type.method',
+        '@lsp.type.function',
+        '@lsp.typemod.function',
+        '@function.member',
+        '@function.call',
+      }, { fg = '#ffffff', italic = true })
+      set_highlights({ '@lsp.type.variable', 'SnacksPickerFile' }, { bold = true })
+      set_highlights({
+        'BlinkCmpMenu',
+        'StatusLine',
+        'Pmenu',
+        'Float',
+        'NormalFloat',
+        'FloatBorder',
+        'LspReferenceText',
+      }, { bg = 'none' })
+      set_highlights({ 'LspSignatureActiveParameter' }, { italic = true, fg = '#7BB099' })
+      set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
     end,
-    opts = {
-      transparent = true,
-    },
   },
   {
     'vague2k/vague.nvim',
@@ -58,16 +75,13 @@ return {
       set_highlights({ '@lsp.type.variable' }, { bold = true })
       set_highlights({ '@type.builtin' }, { bold = false })
       set_highlights({ '@punctuation.bracket', '@constructor.lua' }, { italic = false })
-      set_highlights(
-        {
-          '@lsp.type.method',
-          '@lsp.type.function',
-          '@lsp.typemod.function',
-          '@function.member',
-          '@function.call',
-        },
-        { fg = '#c48282', italic = true }
-      )
+      set_highlights({
+        '@lsp.type.method',
+        '@lsp.type.function',
+        '@lsp.typemod.function',
+        '@function.member',
+        '@function.call',
+      }, { fg = '#c48282', italic = true })
     end,
   },
   {
