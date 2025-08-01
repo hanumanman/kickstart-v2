@@ -16,6 +16,8 @@ return {
     keys = {
       ['<cr>'] = 'jump_close',
       ['o'] = 'jump',
+      ['n'] = 'next',
+      ['b'] = 'prev',
     },
   },
 }

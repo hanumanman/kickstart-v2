@@ -61,12 +61,11 @@ return {
         Snacks.picker.files {
           finder = 'files',
           format = 'file',
-          layout = 'ivy',
           hidden = true,
           ignored = true,
         }
       end,
-      desc = 'Find All Files',
+      desc = 'Find All Files (including hidden and ignored)',
     },
     {
       '<leader>dd',
@@ -125,7 +124,7 @@ return {
     {
       '<leader>do',
       function()
-        Snacks.picker.recent { layout = 'ivy', filter = { cwd = true } }
+        Snacks.picker.recent { filter = { cwd = true } }
       end,
       desc = 'Recent',
     },
@@ -139,9 +138,11 @@ return {
     {
       '<leader>dt',
       function()
-        Snacks.picker.todo_comments {}
+        Snacks.picker.todo_comments {
+          keywords = { 'TODO', 'FIX', 'FIXME' },
+        }
       end,
-      desc = 'Grep Open Buffers',
+      desc = 'Search TODO comments',
     },
     {
       '<leader>dW',
@@ -158,6 +159,7 @@ return {
           filter = {
             default = true,
           },
+          layout = 'ivy',
         }
       end,
       desc = 'LSP Symbols',
