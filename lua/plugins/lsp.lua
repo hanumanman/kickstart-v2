@@ -248,12 +248,6 @@ return {
         },
       }
 
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
-      --  You can press `g?` for help in this menu.
       require('mason').setup()
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
@@ -263,6 +257,7 @@ return {
         'css-lsp',
         'emmet-language-server',
         'eslint-lsp',
+        'oxlint',
         'tailwindcss-language-server',
         'svelte-language-server',
         'marksman',
