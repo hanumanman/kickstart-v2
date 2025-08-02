@@ -1,5 +1,4 @@
 local theme = {
-  kanagawa = false,
   vague = false,
   rasmus = true,
 }
@@ -48,7 +47,7 @@ return {
         -- { fg = '#DE6B48', italic = true }
         { fg = '#E88D67', italic = true }
       )
-      set_highlights({ '@markup.heading' }, { fg = '#eeeeee' })
+      set_highlights({ '@markup.heading', '@constant.bash' }, { fg = '#eeeeee' })
     end,
   },
   {
@@ -92,79 +91,6 @@ return {
         '@function.member',
         '@function.call',
       }, { fg = '#c48282', italic = true })
-    end,
-  },
-  {
-    'rebelot/kanagawa.nvim',
-    lazy = false,
-    priority = 1000,
-    enabled = theme.kanagawa,
-    config = function()
-      require('kanagawa').setup {
-        compile = true, -- enable compiling the colorscheme (make sure to set up the compiler) (Should run :KanagawaCompile after changing config to take effect)
-        undercurl = true, -- enable undercurls
-        commentStyle = { italic = true },
-        typeStyle = { bold = false },
-        functionStyle = { italic = true },
-        keywordStyle = { italic = false, bold = false },
-        statementStyle = { bold = false },
-        transparent = true, -- do not set background color
-        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-        colors = { -- add/modify theme and palette colors
-          palette = {},
-          theme = {
-            wave = {},
-            lotus = {},
-            dragon = {},
-            all = {
-              ui = {
-                bg_gutter = 'none',
-              },
-            },
-          },
-        },
-        overrides = function(colors)
-          local kanagawaTheme = colors.theme
-          local makeDiagnosticColor = function(color)
-            local c = require 'kanagawa.lib.color'
-            return { fg = color, bg = c(color):blend(kanagawaTheme.ui.bg, 0.95):to_hex() }
-          end
-          return {
-            NormalDark = { fg = kanagawaTheme.ui.fg_dim, bg = kanagawaTheme.ui.bg_m3 },
-            LazyNormal = { bg = kanagawaTheme.ui.bg_m3, fg = kanagawaTheme.ui.fg_dim },
-            MasonNormal = { bg = kanagawaTheme.ui.bg_m3, fg = kanagawaTheme.ui.fg_dim },
-            Pmenu = { fg = kanagawaTheme.ui.shade0, bg = 'none', blend = vim.o.pumblend }, -- add `blend = vim.o.pumblend` to enable transparency
-            FlashBackdrop = { fg = kanagawaTheme.diag.hint },
-            PmenuExtra = { fg = kanagawaTheme.ui.shade0, bg = 'none' },
-            DiagnosticVirtualTextHint = makeDiagnosticColor(kanagawaTheme.diag.hint),
-            DiagnosticVirtualTextInfo = makeDiagnosticColor(kanagawaTheme.diag.info),
-            DiagnosticVirtualTextWarn = makeDiagnosticColor(kanagawaTheme.diag.warning),
-            DiagnosticVirtualTextError = makeDiagnosticColor(kanagawaTheme.diag.error),
-          }
-        end,
-        theme = 'wave',
-        background = {
-          dark = 'wave',
-          light = 'lotus',
-        },
-      }
-
-      vim.cmd [[colorscheme kanagawa]]
-
-      set_highlights(
-        { 'FloatBorder', 'BlinkCmpMenuBorder', 'NormalFloat', 'FloatTitle' },
-        { bg = 'none' }
-      )
-      set_highlights({ 'SnacksPickerBorder' }, { fg = '#727169', bg = 'none' })
-      set_highlights({ 'SnacksPickerDir', 'BufferLineBackground' }, { fg = '#8B949E' })
-      set_highlights(
-        { 'OilDirHidden', 'OilFileHidden', 'DiagnosticUnnecessary' },
-        { fg = '#727169' }
-      )
-      set_highlights({ 'LspSignatureActiveParameter' }, { italic = true })
-      set_highlights({ '@lsp.type.variable' }, { bold = true })
-      set_highlights({ '@lsp.type.comment' }, { fg = '#76946A' })
-      set_highlights({ '@type.builtin' }, { bold = false })
     end,
   },
 }

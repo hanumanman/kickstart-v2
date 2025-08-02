@@ -26,7 +26,6 @@ return {
   end,
   opts = {
     bigfile = { enabled = true },
-    explorer = { enabled = false },
     indent = {
       indent = {
         enabled = false,
@@ -42,9 +41,6 @@ return {
     scope = { enabled = true },
     statuscolumn = { enabled = true },
     lazygit = { enabled = true },
-    zen = { enabled = false, show = {
-      tabline = true,
-    } },
   },
   keys = {
     -- Pickers & Explorer
@@ -74,7 +70,13 @@ return {
       end,
       desc = 'Resume Last Picker',
     },
-
+    {
+      '<leader>dg',
+      function()
+        Snacks.picker.git_branches {}
+      end,
+      desc = 'Git Branches',
+    },
     {
       '<leader>dl',
       function()
@@ -97,29 +99,11 @@ return {
       desc = 'Grep',
     },
     {
-      ',',
-      function()
-        Snacks.explorer {
-          auto_close = true,
-          include = { '.env' },
-          ignored = false,
-        }
-      end,
-      desc = 'File Explorer',
-    },
-    {
       '<leader>da',
       function()
         Snacks.picker.lines()
       end,
       desc = 'Grep Line',
-    },
-    {
-      '<leader>dg',
-      function()
-        Snacks.picker.git_files {}
-      end,
-      desc = 'Find Git Files',
     },
     {
       '<leader>do',
@@ -159,7 +143,6 @@ return {
           filter = {
             default = true,
           },
-          layout = 'ivy',
         }
       end,
       desc = 'LSP Symbols',
@@ -170,13 +153,6 @@ return {
         Snacks.lazygit()
       end,
       desc = 'LazyGit',
-    },
-    {
-      ',',
-      function()
-        Snacks.zen()
-      end,
-      desc = 'Zen mode',
     },
   },
 }
