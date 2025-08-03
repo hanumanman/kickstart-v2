@@ -44,10 +44,10 @@ return {
       set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
       set_highlights(
         { '@comment', '@lsp.type.comment' },
-        -- { fg = '#DE6B48', italic = true }
         { fg = '#E88D67', italic = true }
       )
       set_highlights({ '@markup.heading', '@constant.bash' }, { fg = '#eeeeee' })
+      set_highlights({ 'WhichKeyGroup' }, { italic = false, fg = '#ffc591' })
     end,
   },
   {
