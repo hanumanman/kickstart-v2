@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 map('n', '<leader>f', function()
   vim.cmd 'w'
-end, { desc = 'Save' })
+end, { desc = 'Save and format' })
 
 map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
 map('n', 'vie', 'ggVG', { desc = 'Select entire file' })
@@ -28,12 +28,12 @@ map(
   'n',
   '<leader>l',
   'yiwo// TODO: Delete console.log<Esc>oconsole.log("LOGGING <C-r>0", <C-r>0)<Esc>0wxxx',
-  { desc = 'Turbo log' }
+  { desc = 'console.log' }
 )
 
 --Buffer navigation
 map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
-map('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Switch to the last buffer' })
+map('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Close current buffer' })
 map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
 map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
 

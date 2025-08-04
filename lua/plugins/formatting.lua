@@ -2,14 +2,6 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
-  -- keys = { {
-  --   '<leader>f',
-  --   function()
-  --     require('conform').format { async = true }
-  --   end,
-  --   mode = '',
-  --   desc = 'Format',
-  -- } },
   config = function()
     ---@type conform.setupOpts
     require('conform').setup {
@@ -37,6 +29,7 @@ return {
         typescriptreact = { 'prettierd' },
         graphql = { 'prettierd' },
         svelte = { 'prettierd' },
+        sh = { 'shfmt' },
       },
     }
   end,

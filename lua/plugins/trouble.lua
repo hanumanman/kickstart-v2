@@ -5,9 +5,8 @@ return {
   keys = {
     {
       '<leader>q',
-
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = 'Toggle diagnostics',
+      desc = 'Trouble',
     },
   },
   opts = {

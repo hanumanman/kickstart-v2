@@ -1,6 +1,7 @@
 local theme = {
+  lackluster = true,
   vague = false,
-  rasmus = true,
+  rasmus = false,
 }
 
 local function set_highlights(highlights, definition)
@@ -11,6 +12,42 @@ end
 
 return {
   {
+    'slugbyte/lackluster.nvim',
+    enabled = theme.lackluster,
+    lazy = false,
+    priority = 1000,
+    init = function()
+      local lackluster = require 'lackluster'
+      require('nvim-web-devicons').setup {
+        color_icons = false,
+        override = {
+          ['default_icon'] = {
+            color = lackluster.color.gray4,
+            name = 'Default',
+          },
+        },
+      }
+      vim.cmd.colorscheme 'lackluster'
+      set_highlights({
+        '@lsp.type.method',
+        '@lsp.type.function',
+        '@lsp.typemod.function',
+        '@function.member',
+        '@function.call',
+      }, { fg = '#EEEEEE', italic = true })
+      set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
+      set_highlights({ 'Visual', 'CurSearch' }, { bg = '#3a3d37' })
+      set_highlights({ '@lsp.type.variable' }, { bold = true })
+    end,
+    opts = {
+      tweak_background = {
+        normal = 'none', -- transparent
+        menu = 'none',
+        popup = 'none',
+      },
+    },
+  },
+  {
     'kvrohit/rasmus.nvim',
     enabled = theme.rasmus,
     lazy = false,
@@ -19,14 +56,18 @@ return {
       vim.g.rasmus_transparent = true
       vim.cmd [[colorscheme rasmus]]
 
+      set_highlights({ '@markup.heading', '@constant.bash' }, { fg = '#EEEEEE' })
+      set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
+      set_highlights({ 'String' }, { italic = true, fg = '#7BB099' })
+      set_highlights({ 'WhichKeyGroup' }, { italic = false, fg = '#7BB099' })
+      set_highlights({ '@lsp.type.variable' }, { fg = '#c0c0c0', bold = true })
       set_highlights({
         '@lsp.type.method',
         '@lsp.type.function',
         '@lsp.typemod.function',
         '@function.member',
         '@function.call',
-      }, { fg = '#eeeeee', italic = true })
-      set_highlights({ '@lsp.type.variable' }, { fg = '#c0c0c0', bold = true })
+      }, { fg = '#EEEEEE', italic = true })
       set_highlights({
         'BlinkCmpMenu',
         'StatusLine',
@@ -36,18 +77,14 @@ return {
         'FloatBorder',
         'LspReferenceText',
       }, { bg = 'none' })
-      set_highlights({ 'String' }, { italic = true, fg = '#7BB099' })
       set_highlights(
         { 'LspSignatureActiveParameter' },
         { italic = true, fg = '#7BB099', underline = true, bold = true }
       )
-      set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
       set_highlights(
         { '@comment', '@lsp.type.comment' },
         { fg = '#E88D67', italic = true }
       )
-      set_highlights({ '@markup.heading', '@constant.bash' }, { fg = '#eeeeee' })
-      set_highlights({ 'WhichKeyGroup' }, { italic = false, fg = '#ffc591' })
     end,
   },
   {

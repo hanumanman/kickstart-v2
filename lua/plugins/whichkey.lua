@@ -2,15 +2,12 @@ return {
   'folke/which-key.nvim',
   event = 'VimEnter',
   opts = {
-    preset = 'helix',
     icons = {
       mappings = false,
     },
 
     -- Document existing key chains
     spec = {
-      { '<leader>c', group = 'Code', mode = { 'n', 'x' } },
-      { '<leader>r', group = 'Rename' },
       { '<leader>a', group = 'AI' },
       { '<leader>d', group = 'Telescope' },
       { '<leader>b', group = 'Buffers' },
