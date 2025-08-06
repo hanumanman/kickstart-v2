@@ -16,7 +16,6 @@ return {
           themable = true,
           indicator = {
             style = 'none',
-            -- icon = '󰄛',
           },
           show_buffer_close_icons = false,
           show_close_icon = false,
@@ -29,18 +28,6 @@ return {
           end,
         },
       }
-
-      -- Mappings
-      local map = vim.api.nvim_set_keymap
-      local opts = { noremap = true, silent = true }
-
-      -- Close buffer(s)
-      map('n', '<leader>bc', '<Cmd>BufferLineCloseOthers<CR>', opts)
-      map('n', '<leader>br', '<Cmd>BufferLineCloseRight<CR>', opts)
-      map('n', '<leader>bl', '<Cmd>BufferLineCloseLeft<CR>', opts)
-
-      -- Magic buffer-picking mode
-      map('n', '<S-Tab>', '<Cmd>BufferLinePick<CR>', opts)
     end,
   },
 }

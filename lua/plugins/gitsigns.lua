@@ -2,6 +2,14 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
+      preview_config = {
+        -- Options passed to nvim_open_win
+        style = 'minimal',
+        relative = 'cursor',
+        row = 0,
+        col = 1,
+        border = 'rounded',
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 

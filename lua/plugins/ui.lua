@@ -36,9 +36,8 @@ return {
         '@function.call',
       }, { fg = '#EEEEEE', italic = true })
       set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
-      set_highlights({ 'Visual', 'CurSearch' }, { bg = '#3a3d37' })
       set_highlights({ '@lsp.type.variable' }, { bold = true })
-      set_highlights({ 'OilDir' }, { fg = lackluster.color.gray8 })
+      set_highlights({ 'OilDir', 'DiagnosticHint' }, { fg = lackluster.color.gray8 })
       set_highlights(
         { '@comment', '@lsp.type.comment' },
         { fg = lackluster.color.lack, italic = true }
@@ -120,8 +119,6 @@ return {
         { italic = true, fg = '#7db574' }
       )
       set_highlights({ 'BlinkCmpMenu', 'StatusLine', 'Pmenu' }, { bg = 'none' })
-      set_highlights({ 'BufferLineBackground' }, { fg = '#8B949E' })
-      set_highlights({ 'FlashBackdrop' }, { link = 'BufferLineBackground' })
       set_highlights({ 'FlashLabel' }, { fg = '#E8B589', bg = 'none' })
       set_highlights({ '@lsp.type.variable' }, { bold = true })
       set_highlights({ '@type.builtin' }, { bold = false })

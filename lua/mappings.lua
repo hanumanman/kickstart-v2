@@ -34,6 +34,20 @@ map(
 --Buffer navigation
 map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 map('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Close current buffer' })
+map('n', '<leader>bc', function() -- Close all buffers except current
+  local current_buf = vim.api.nvim_get_current_buf()
+  local all_bufs = vim.api.nvim_list_bufs()
+
+  for _, buf in ipairs(all_bufs) do
+    if
+      buf ~= current_buf
+      and vim.api.nvim_buf_is_loaded(buf)
+      and vim.bo[buf].buflisted
+    then
+      vim.api.nvim_buf_delete(buf, { force = false })
+    end
+  end
+end, { desc = 'Close other buffers' })
 map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
 map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
 
