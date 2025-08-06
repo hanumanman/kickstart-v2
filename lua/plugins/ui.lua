@@ -27,7 +27,7 @@ return {
           },
         },
       }
-      vim.cmd.colorscheme 'lackluster'
+      vim.cmd.colorscheme 'lackluster-mint'
       set_highlights({
         '@lsp.type.method',
         '@lsp.type.function',
@@ -38,6 +38,11 @@ return {
       set_highlights({ 'SnacksPickerDir' }, { fg = '#8B949E' })
       set_highlights({ 'Visual', 'CurSearch' }, { bg = '#3a3d37' })
       set_highlights({ '@lsp.type.variable' }, { bold = true })
+      set_highlights({ 'OilDir' }, { fg = lackluster.color.gray8 })
+      set_highlights(
+        { '@comment', '@lsp.type.comment' },
+        { fg = lackluster.color.lack, italic = true }
+      )
     end,
     opts = {
       tweak_background = {

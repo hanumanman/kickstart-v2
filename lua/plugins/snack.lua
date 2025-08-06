@@ -64,6 +64,13 @@ return {
       desc = 'Find All Files (including hidden and ignored)',
     },
     {
+      '<leader>dr',
+      function()
+        Snacks.picker.registers {}
+      end,
+      desc = 'Registers',
+    },
+    {
       '<leader>dd',
       function()
         Snacks.picker.resume {}
