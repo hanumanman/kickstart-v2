@@ -35,10 +35,10 @@ map(
 --Buffer navigation
 map('n', '<C-i>', '<cmd>b#<cr>', { desc = 'Switch to the last buffer' })
 map('n', '<leader>x', '<cmd>bdelete<cr>', { desc = 'Close current buffer' })
-map('n', '<leader>bc', function() -- Close all buffers except current
+
+local function CloseOtherBuffers() -- Close all buffers except current
   local current_buf = vim.api.nvim_get_current_buf()
   local all_bufs = vim.api.nvim_list_bufs()
-
   for _, buf in ipairs(all_bufs) do
     if
       buf ~= current_buf
@@ -48,19 +48,18 @@ map('n', '<leader>bc', function() -- Close all buffers except current
       vim.api.nvim_buf_delete(buf, { force = false })
     end
   end
-end, { desc = 'Close other buffers' })
+end
+map('n', '<leader>bc', CloseOtherBuffers, { desc = 'Close other buffers' })
 map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
 map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
 
 map('n', '<leader>n', '*N', { desc = 'Search word under cursor and go back' })
-function VisualSearchBack()
-  local saved_reg = vim.fn.getreg '"'
-  local saved_regtype = vim.fn.getregtype '"'
-  vim.cmd 'normal! y'
-  local search_text = vim.fn.getreg '"'
+local function VisualSearchBack()
+  vim.cmd 'normal! "zy'
+  local search_text = vim.fn.getreg 'z'
   search_text = vim.fn.escape(search_text, '/\\^$*+?()[]{}|')
   vim.fn.setreg('/', search_text)
   vim.opt.hlsearch = true
-  vim.fn.setreg('"', saved_reg, saved_regtype)
+  vim.fn.setreg('z', '')
 end
 map('v', '<leader>n', VisualSearchBack, { desc = 'Search word under cursor and go back' })
