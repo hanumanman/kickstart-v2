@@ -3,8 +3,8 @@ local map = vim.keymap.set
 map('n', '<leader>f', function()
   vim.cmd 'w'
 end, { desc = 'Save and format' })
-map({ 'n', 'v' }, '<leader>n', '*N', { desc = 'Search word under cursor/selection text' })
 
+map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
 map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
 map('n', 'vie', 'ggVG', { desc = 'Select entire file' })
 map('n', 'cie', 'ggcG', { desc = 'Change entire file' })
@@ -52,7 +52,15 @@ end, { desc = 'Close other buffers' })
 map('n', 'H', '<cmd>bprev<cr>', { desc = 'Switch to the left buffer' })
 map('n', 'L', '<cmd>bnext<cr>', { desc = 'Switch to the right buffer' })
 
--- stylua: ignore start
-map('n', '<A-j>', function() vim.api.nvim_command 'move .+1' end, { desc = 'Move line down' })
-map('n', '<A-k>', function() vim.api.nvim_command 'move .-2' end, { desc = 'Move line up' })
--- stylua: ignore end
+map('n', '<leader>n', '*N', { desc = 'Search word under cursor and go back' })
+function VisualSearchBack()
+  local saved_reg = vim.fn.getreg '"'
+  local saved_regtype = vim.fn.getregtype '"'
+  vim.cmd 'normal! y'
+  local search_text = vim.fn.getreg '"'
+  search_text = vim.fn.escape(search_text, '/\\^$*+?()[]{}|')
+  vim.fn.setreg('/', search_text)
+  vim.opt.hlsearch = true
+  vim.fn.setreg('"', saved_reg, saved_regtype)
+end
+map('v', '<leader>n', VisualSearchBack, { desc = 'Search word under cursor and go back' })
