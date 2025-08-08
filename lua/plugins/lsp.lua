@@ -1,22 +1,24 @@
 -- LSP Plugins
 return {
   {
-    'yioneko/nvim-vtsls',
-    event = 'LspAttach',
+    'pmizio/typescript-tools.nvim',
+    event = 'BufReadPost',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     keys = {
       {
         '<leader>is',
         mode = 'n',
-        '<cmd>VtsExec organize_imports<cr>',
-        desc = 'Remove unused import',
+        '<cmd>TSToolsOrganizeImports<cr>',
+        desc = 'Organize imports',
       },
       {
         '<leader>ia',
         mode = 'n',
-        '<cmd>VtsExec add_missing_imports<cr>',
+        '<cmd>TSToolsAddMissingImports<cr>',
         desc = 'Add all missing imports',
       },
     },
+    opts = {},
   },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -179,21 +181,13 @@ return {
             },
           },
         },
-        vtsls = {
-          root_dir = require('lspconfig.util').root_pattern 'package.json',
-          single_file_support = true,
-          experimental = {
-            completion = {
-              enableServerSideFuzzyMatch = true,
-            },
-          },
-        },
       }
 
       require('mason').setup()
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
+        'typescript-language-server',
         'lua-language-server',
         'json-lsp',
         'css-lsp',
