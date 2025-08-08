@@ -187,7 +187,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
-        'typescript-language-server',
+        -- 'typescript-language-server',
         'lua-language-server',
         'json-lsp',
         'css-lsp',

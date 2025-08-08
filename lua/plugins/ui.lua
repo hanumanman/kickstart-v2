@@ -50,7 +50,7 @@ return {
     end,
     opts = {
       options = {
-        transparent = true,
+        -- transparent = false,
       },
     },
   },
@@ -87,11 +87,11 @@ return {
       )
     end,
     opts = {
-      tweak_background = {
-        normal = 'none', -- transparent
-        menu = 'none',
-        popup = 'none',
-      },
+      -- tweak_background = {
+      --   normal = 'none', -- transparent
+      --   menu = 'none',
+      --   popup = 'none',
+      -- },
     },
   },
   {
@@ -100,7 +100,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.rasmus_transparent = true
+      -- vim.g.rasmus_transparent = true
       vim.cmd [[colorscheme rasmus]]
 
       set_highlights({ '@markup.heading', '@constant.bash' }, { fg = '#EEEEEE' })
@@ -142,7 +142,7 @@ return {
     config = function()
       require('vague').setup {
         bold = true,
-        transparent = true,
+        -- transparent = true,
         style = {
           functions = 'italic',
           boolean = 'none',

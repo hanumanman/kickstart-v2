@@ -3,6 +3,7 @@ local map = vim.keymap.set
 map('n', '<leader>f', function()
   vim.cmd 'w'
 end, { desc = 'Save and format' })
+map({ 'n', 'v' }, '<leader>n', '*N', { desc = 'Search word under cursor/selection text' })
 
 map('n', 'yie', 'ggyG', { desc = 'Yank entire file' })
 map('n', 'vie', 'ggVG', { desc = 'Select entire file' })
