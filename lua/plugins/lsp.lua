@@ -1,25 +1,6 @@
 -- LSP Plugins
 return {
-  {
-    'pmizio/typescript-tools.nvim',
-    event = 'BufReadPost',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    keys = {
-      {
-        '<leader>is',
-        mode = 'n',
-        '<cmd>TSToolsOrganizeImports<cr>',
-        desc = 'Organize imports',
-      },
-      {
-        '<leader>ia',
-        mode = 'n',
-        '<cmd>TSToolsAddMissingImports<cr>',
-        desc = 'Add all missing imports',
-      },
-    },
-    opts = {},
-  },
+
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -187,7 +168,6 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
-        -- 'typescript-language-server',
         'lua-language-server',
         'json-lsp',
         'css-lsp',
@@ -200,7 +180,6 @@ return {
         -- formatter
         'stylua',
         'shfmt',
-        -- 'prettier',
         'prettierd',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -222,5 +201,25 @@ return {
         },
       }
     end,
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    event = 'BufReadPost',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    keys = {
+      {
+        '<leader>is',
+        mode = 'n',
+        '<cmd>TSToolsOrganizeImports<cr>',
+        desc = 'Organize imports',
+      },
+      {
+        '<leader>ia',
+        mode = 'n',
+        '<cmd>TSToolsAddMissingImports<cr>',
+        desc = 'Add all missing imports',
+      },
+    },
+    opts = {},
   },
 }
