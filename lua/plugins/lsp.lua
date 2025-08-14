@@ -180,7 +180,8 @@ return {
         -- formatter
         'stylua',
         'shfmt',
-        'prettierd',
+        'prettier',
+        -- 'prettierd',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
