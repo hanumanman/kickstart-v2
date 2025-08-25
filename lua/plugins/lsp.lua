@@ -168,6 +168,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         --lsp
+        'vtsls',
         'lua-language-server',
         'json-lsp',
         'css-lsp',
@@ -204,23 +205,25 @@ return {
     end,
   },
   {
-    'pmizio/typescript-tools.nvim',
-    event = 'BufReadPost',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    'yioneko/nvim-vtsls',
+    lazy = false,
     keys = {
       {
         '<leader>is',
         mode = 'n',
-        '<cmd>TSToolsOrganizeImports<cr>',
+        function()
+          require('vtsls').commands.organize_imports()
+        end,
         desc = 'Organize imports',
       },
       {
         '<leader>ia',
         mode = 'n',
-        '<cmd>TSToolsAddMissingImports<cr>',
+        function()
+          require('vtsls').commands.add_missing_imports()
+        end,
         desc = 'Add all missing imports',
       },
     },
-    opts = {},
   },
 }
